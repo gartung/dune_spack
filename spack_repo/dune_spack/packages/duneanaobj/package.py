@@ -14,6 +14,7 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     repo = "DUNE/duneanaobj"
     version_patterns = ["09_00_00", "09.14.19"]
 
+    version("03_10_00", sha256="35f025b77b3f5c6cc4666d1bbd04b2ff8f837a51670bbe5c0d80a7e3145164d8")
     version("03_06_01", sha256="ad0647930712d5680c77c03f8d0af3a9e44f222c15c753d631ac8752ddf07e67")
     version("03_06_00", sha256="28be5276666146e88501fe73df6907fde9552969824e8f7dc8115598c914d5da")
     version("03_05_00", sha256="00e227bccf02ef0c8faa5931b39b6f6c65ff88563e2c328e35e1c3109bcf8c63")

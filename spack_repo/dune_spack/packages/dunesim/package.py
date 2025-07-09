@@ -14,6 +14,7 @@ class Dunesim(CMakePackage, FnalGithubPackage):
     repo = "DUNE/dunesim"
     version_patterns = ["09_00_00d00", "09.14.19"]
 
+    version("10_08_02d00", sha256="afe07128fe9fbe6214314b2dd6bb247e30747d7646d6ecb30de5160054e58277")
     version("10_00_03d00", sha256="9a62b3c10eada40b443c512cd59d7f30458f7906d1c719da21795932a3b612ae")
     version("09_92_00d00", sha256="281df90bd373866bf9ab9005c1308b8eb74d75109fcd6cdeca1635d4f6435a17")
     version("09_89_01d01", sha256="130c0b293e35cbf3d693ba3239642751bf87b4ad636a640bcdc137a3c66b7160")

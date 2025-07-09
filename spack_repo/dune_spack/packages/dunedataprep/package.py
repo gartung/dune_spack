@@ -14,6 +14,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
     repo = "DUNE/dunedataprep"
     version_patterns = ["09_00_00d00", "09.14.19"]
 
+    version("10_08_02d00", sha256="51a4e1511d88139e96e024150a1da592104d92d16e885dbe150fc9a7ef39406f")
     version("10_00_03d00", sha256="673f451a37a0fb0884aa5f739af3bd66b15ef614e8e5c532d81c91c8c0ad65c5")
     version("09_92_00d00", sha256="6f636aa889a8b2e3b926c003e96bec098d79bc025417a2ae281750eb9ce0d57c")
     version("09_89_01d01", sha256="028bec795bf7da56b3acdd689110fa47498e9b3c766306b96ed14076c012642a")

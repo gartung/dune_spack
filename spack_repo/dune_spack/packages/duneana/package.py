@@ -14,7 +14,7 @@ class Duneana(CMakePackage, FnalGithubPackage):
     repo = "DUNE/duneana"
     version_patterns = ["09_00_00d00", "09.14.19"]
 
-
+    version("10_08_02d00", sha256="7f9faf6bff0926c9958eaa2f74db6410559598788f48c5f0117e313d12fccee4")
     version("10_00_03d00", sha256="0db33f7a710b5a85c669d77db6a735fdbb354c70feb689051b080797d8d26712")
     version("09_92_00d00", sha256="fc0700c36f3334f70f7b3929b868bdf530a9f71f44dc205daa052d3755e4d08f")
     version("09_89_01d01", sha256="8769e2e2dbac6e6664150acced6e276a491d78463a5e30bcaff2412cb3208da7")
