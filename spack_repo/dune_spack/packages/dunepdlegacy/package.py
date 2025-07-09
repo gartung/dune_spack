@@ -29,7 +29,9 @@ class Dunepdlegacy(CMakePackage, FnalGithubPackage):
 
     patch('v1_01_05.patch', when='@1_01_05')
     patch('v09_81_00d00.patch', when='@1_01_00')
-    
+
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("gallery")
     depends_on("art")
     depends_on("artdaq-core")

@@ -37,6 +37,8 @@ class Duneopdet(CMakePackage, FnalGithubPackage):
         filter_file("LANGUAGES CXX", "LANGUAGES CXX C", "CMakeLists.txt")
 
     depends_on("duneana")
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("dunecore")
     depends_on("nlohmann-json")
     depends_on("cetmodules", type="build")

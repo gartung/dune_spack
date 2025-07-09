@@ -37,6 +37,9 @@ class Dunecore(CMakePackage, FnalGithubPackage):
         filter_file(r'find_package\( nusimdata REQUIRED EXPORT \)$',
                     'find_package( nusimdata REQUIRED EXPORT )\nfind_package( gallery REQUIRED EXPORT )',
                     'CMakeLists.txt')
+
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("boost")
     depends_on("geant4")
     depends_on("root")

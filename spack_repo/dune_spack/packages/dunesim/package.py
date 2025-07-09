@@ -32,6 +32,8 @@ class Dunesim(CMakePackage, FnalGithubPackage):
     patch('v09_81_00d00.patch', when='@09_81_00d00')
     patch('v09_92_00d00.patch', when='@09_92_00d00')
 
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("art")
     depends_on("art-root-io")
     depends_on("larevt")

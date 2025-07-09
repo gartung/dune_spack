@@ -32,6 +32,8 @@ class EdepSim(CMakePackage):
     #version("0.0.2", sha256="")
     #version("0.0.1", sha256="")
 
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("cmake", type="build")
     depends_on("nlohmann-json")
     #depends_on("root") # TODO: In theory it does depend on ROOT and Geant4, but fails when they're enabled here

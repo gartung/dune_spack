@@ -27,6 +27,8 @@ class DuneTms(CMakePackage):
     version("main", branch="main")
     version("develop", branch="main")
 
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("cmake", type="build")
     depends_on("nlohmann-json")
     depends_on("edep-sim")

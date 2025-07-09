@@ -35,6 +35,8 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     patch('v09_93_00d00.patch', when="@03_06_00")
     patch('main-spack.patch', when="@develop")
 
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("root")
     depends_on("canvas-root-io")
     depends_on("py-srproxy@00.43:", when="@03_03_00:")

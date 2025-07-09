@@ -31,6 +31,8 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("dunesim")
     depends_on("dunecalib")
     depends_on("duneopdet")

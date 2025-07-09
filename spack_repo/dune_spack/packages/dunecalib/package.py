@@ -30,6 +30,8 @@ class Dunecalib(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("dunecore")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")

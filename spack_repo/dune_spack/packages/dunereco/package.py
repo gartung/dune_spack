@@ -31,6 +31,8 @@ class Dunereco(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
     depends_on("hep-hpc")
     #depends_on("python")
     #depends_on("py-tensorflow")
