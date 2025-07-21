@@ -36,7 +36,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
     depends_on("dunecore")
     depends_on("jsonnet")
     depends_on("jsoncpp")
-    depends_on("wirecell")
+    depends_on("wire-cell-toolkit")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
     depends_on("root+spectrum")
@@ -45,7 +45,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
             self.define("IGNORE_ABSOLUTE_TRANSITIVE_DEPENDENCIES", "Bool:True"),
-            self.define("WIRECELL_LIB", "%s" % self.spec["wirecell"].prefix.lib64)
+            self.define("WIRECELL_LIB", "%s" % self.spec["wire-cell-toolkit"].prefix.lib64)
         ] 
         return args
 
