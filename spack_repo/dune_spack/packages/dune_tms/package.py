@@ -38,9 +38,3 @@ class DuneTms(CMakePackage):
     def setup_run_environment(self, env): 
         env.set("TMS_DIR", self.prefix)
 
-class CMakeBuilder(spack_repo.builtin.build_systems.cmake.CMakeBuilder):
-    def cmake_args(self):
-        args = [
-            self.define("CMAKE_VERBOSE_MAKEFILE", True)
-        ]  
-        return args
