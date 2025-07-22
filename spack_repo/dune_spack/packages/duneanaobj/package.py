@@ -2,7 +2,7 @@
 # Spack Project Developers. See the top-level COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
-
+import os
 from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
 from spack_repo.fnal_art.packages.fnal_github_package.package import *
@@ -53,8 +53,7 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     def setup_build_environment(self, spack_env):
         spack_env.set("LD_LIBRARY_PATH", "%s/root" % self.spec["root"].prefix.lib)
         spack_env.set("ROOT_INC", "%s" % self.spec["root"].prefix.include)
-        spack_env.set("DUNEANAOBJ_DIR", "%s" % self.stage.source_path)
-        spack_env.set("MRB_BUILDDIR", "%s" % self.build_directory)
+        spack_env.set("DUNEANAOBJ_DIR", "%s" % os.path.realpath(self.stage.source_path))
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
