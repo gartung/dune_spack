@@ -85,6 +85,7 @@ class Dunecore(CMakePackage, FnalGithubPackage):
     depends_on("pandora")
     depends_on("dunedaqdataformats")
     depends_on("dunedetdataformats")
+    depends_on("duneprototypes")
     depends_on("postgresql")
     depends_on("fftw")
     depends_on("sqlite")
