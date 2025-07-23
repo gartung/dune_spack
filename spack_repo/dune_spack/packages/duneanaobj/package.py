@@ -34,6 +34,8 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     patch('v09_81_00d00.patch', when="@03_03_00")
     patch('v09_93_00d00.patch', when="@03_06_00")
     patch('main-spack.patch', when="@develop")
+    def patch(self):
+        filter_file('^cet_cmake_config','#cet_cmake_config', 'CMakeLists.txt')
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
