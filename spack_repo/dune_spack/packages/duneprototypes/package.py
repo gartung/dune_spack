@@ -12,6 +12,7 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
     """Duneprototypes"""
 
     repo = "DUNE/duneprototypes"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="650e67104dba0a42d283c3afac2d509adab821762cc2d9a41fa4a584e6272632")

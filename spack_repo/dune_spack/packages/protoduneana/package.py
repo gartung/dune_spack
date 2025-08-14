@@ -12,6 +12,7 @@ class Protoduneana(CMakePackage, FnalGithubPackage):
     """Protoduneana"""
 
     repo = "DUNE/protoduneana"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="d06274906c50c37bf9fa4f38ecdfa5ce40e44b2df5f925112b78c0a5c8d836e3")

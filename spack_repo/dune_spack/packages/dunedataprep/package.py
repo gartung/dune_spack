@@ -12,6 +12,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
     """Dunedataprep"""
 
     repo = "DUNE/dunedataprep"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="51a4e1511d88139e96e024150a1da592104d92d16e885dbe150fc9a7ef39406f")

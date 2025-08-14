@@ -12,6 +12,7 @@ class Duneutil(CMakePackage, FnalGithubPackage):
     """Duneutil"""
 
     repo = "DUNE/duneutil"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="41666f3e06f5f5b9c36ac8c38b7578fd38a92f6fb16b94196c0e58da8af462b9")
