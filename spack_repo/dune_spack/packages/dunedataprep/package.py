@@ -38,6 +38,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
     depends_on("jsonnet")
     depends_on("jsoncpp")
     depends_on("wire-cell-toolkit")
+    depends_on("larwirecell")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
     depends_on("root+spectrum")
