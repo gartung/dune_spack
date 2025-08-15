@@ -57,7 +57,7 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
         spack_env.set("LD_LIBRARY_PATH", "%s/root" % self.spec["root"].prefix.lib)
         spack_env.set("ROOT_INC", "%s" % self.spec["root"].prefix.include)
         spack_env.set("DUNEANAOBJ_DIR", "%s" % os.path.realpath(self.stage.source_path))
-        spack_env.set("SRPROXY_INC", "%s" % os.path.realpath(self.stage.build_directory))
+        spack_env.set("SRPROXY_INC", "%s" % os.path.realpath(self.build_directory))
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
