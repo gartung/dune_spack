@@ -12,8 +12,10 @@ class Dunecore(CMakePackage, FnalGithubPackage):
     """Dunecore"""
 
     repo = "DUNE/dunecore"
+    git = "https://github.com/DUNE/dunecore"
     version_patterns = ["09_00_00d00", "09.14.19"]
 
+    version("10_09_00d00", sha256="3c5d359cfd658304a8de2531cafc1939a413cd0030de68c98f4c453c56239eb4") 
     version("10_08_02d00", sha256="e2f0667237b7982461fb6770805ee265dce76ba53e97ada93c33046dfb4a557c")
     version("10_00_03d00", sha256="853476dfd8e1c97e34e03d0bf47a393a4de2e61af3b7623a41a7004c24851647")
     version("09_92_00d00", sha256="37edf3afd3be02cbd64adef1ab1c5c9c7e275d7ffcee44ffce2172451f94dbcd")
@@ -37,32 +39,56 @@ class Dunecore(CMakePackage, FnalGithubPackage):
         filter_file(r'find_package\( nusimdata REQUIRED EXPORT \)$',
                     'find_package( nusimdata REQUIRED EXPORT )\nfind_package( gallery REQUIRED EXPORT )',
                     'CMakeLists.txt')
+        filter_file(
+                "artdaq_core",
+                "artdaq-core",
+                "CMakeLists.txt"
+                )
+        filter_file(
+                "artdaq_core",
+                "artdaq-core",
+                "dunecore/RawDecoding/CMakeLists.txt"
+                )
+        filter_file(
+                "artdaq-core::artdaq-core_Data",
+                "artdaq-core::Data",
+                "dunecore/RawDecoding/CMakeLists.txt"
+                )
+        filter_file(
+                "artdaq-core::artdaq-core_Utilities",
+                "artdaq-core::Utilities",
+                "dunecore/RawDecoding/CMakeLists.txt"
+                )
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
-    depends_on("boost")
-    depends_on("geant4")
-    depends_on("root")
-    depends_on("eigen")
+    depends_on("cetmodules", type="build")
+    depends_on("cmake", type="build")
     depends_on("art")
-    depends_on("art-root-io")
     depends_on("artdaq-core")
-    depends_on("trace")
+    depends_on("art-root-io")
+    depends_on("boost")
     depends_on("canvas")
     depends_on("canvas-root-io")
-    depends_on("cetlib-except")
     depends_on("cetlib")
+    depends_on("cetlib-except")
     depends_on("clhep")
     depends_on("critic")
+    depends_on("dunedaqdataformats")
+    depends_on("dunedetdataformats")
+    depends_on("dunepdlegacy")
+    depends_on("duneutil")
+    depends_on("eigen")
+    depends_on("fftw")
     depends_on("fhicl-cpp")
-    depends_on("nufinder")
+    depends_on("gallery")
+    depends_on("geant4")
     depends_on("genie")
+    depends_on("hdf5@1.12.2")
     depends_on("hep-concurrency")
+    depends_on("highfive")
     depends_on("ifdh-art")
     depends_on("ifdhc")
-    depends_on("dunepdlegacy")
-    depends_on("gallery")
-    depends_on("duneutil")
     depends_on("larana")
     depends_on("larcore")
     depends_on("larcorealg")
@@ -75,33 +101,30 @@ class Dunecore(CMakePackage, FnalGithubPackage):
     depends_on("larreco")
     depends_on("larsim")
     depends_on("messagefacility")
+    depends_on("nlohmann-json")
     depends_on("nuevdb")
+    depends_on("nufinder")
     depends_on("nug4")
     depends_on("nugen")
     depends_on("nurandom")
     depends_on("nusimdata")
     depends_on("nutools")
     depends_on("pandora")
-    depends_on("dunedaqdataformats")
-    depends_on("dunedetdataformats")
     depends_on("postgresql")
-    depends_on("fftw")
+    depends_on("root")
     depends_on("sqlite")
-    depends_on("nlohmann-json")
-    depends_on("highfive")
-    depends_on("hdf5@1.12.2")
-    depends_on("cetmodules", type="build")
-    depends_on("cmake", type="build")
+    depends_on("trace")
 
     def cmake_args(self):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
-            self.define("CMAKE_MODULE_PATH", "%s/Modules" % self.spec['nufinder'].prefix)
+            self.define("CMAKE_MODULE_PATH", "%s/Modules" % self.spec['nufinder'].prefix),
         ] 
         return args
 
     def setup_build_environment(self, spack_env):
         spack_env.set("LD_LIBRARY_PATH", "%s/root" % self.spec["root"].prefix.lib)
+        spack_env.prepend_path("CMAKE_PREFIX_PATH", self.build_directory)
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)

@@ -12,6 +12,7 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     """Duneanaobj"""
 
     repo = "DUNE/duneanaobj"
+    git  = "https://github.com/DUNE/duneanaobj"
     version_patterns = ["09_00_00", "09.14.19"]
 
     version("03_10_00", sha256="35f025b77b3f5c6cc4666d1bbd04b2ff8f837a51670bbe5c0d80a7e3145164d8")
@@ -49,6 +50,8 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     def cmake_args(self):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
+            self.define("CMAKE_BUILD_DIR", self.prefix),
+            self.define("CMAKE_INSTALL_INCLUDEDIR", self.prefix.include),
         ] 
         return args
 
@@ -56,7 +59,7 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
         spack_env.set("LD_LIBRARY_PATH", "%s/root" % self.spec["root"].prefix.lib)
         spack_env.set("ROOT_INC", "%s" % self.spec["root"].prefix.include)
         spack_env.set("DUNEANAOBJ_DIR", "%s" % os.path.realpath(self.stage.source_path))
-        spack_env.set("SRPROXY_INC", "%s" % os.path.realpath(self.stage.build_directory))
+        spack_env.set("SRPROXY_INC", "%s" % os.path.realpath(self.build_directory))
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)

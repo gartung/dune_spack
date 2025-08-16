@@ -35,11 +35,16 @@ class Duneopdet(CMakePackage, FnalGithubPackage):
 
     def patch(self):
         filter_file("LANGUAGES CXX", "LANGUAGES CXX C", "CMakeLists.txt")
+        filter_file(
+                r'find_package\( dunecore REQUIRED EXPORT \)',
+                'find_package( dunecore REQUIRED EXPORT )\nfind_package( duneprototypes REQUIRED EXPORT)',
+                'CMakeLists.txt'
+            )
 
-    depends_on("duneana")
     depends_on("c", type="build")
     depends_on("cxx", type="build")
     depends_on("dunecore")
+    # depends_on("duneprototypes")
     depends_on("nlohmann-json")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")

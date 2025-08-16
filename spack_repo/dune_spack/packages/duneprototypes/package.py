@@ -31,14 +31,43 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
+    def patch(self):
+        # clean out vestigial dunesim, duneprototypes references
+        filter_file(
+            '#include "dunesim/DetSim/Service/DPhaseSimChannelExtractService.h"',
+            '',
+            'duneprototypes/Protodune/dualphase/Purity_module.cc'
+            )
+        filter_file(
+                'r#include "duneopdet.*',
+                '',
+                'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
+            )
+        filter_file(
+            'dunesim::DetSim',
+            '',
+            'duneprototypes/Protodune/dualphase/CMakeLists.txt'
+            )
+        filter_file(
+            'find_package( dunesim REQUIRED EXPORT )',
+            '',
+            'CMakeLists.txt'
+            )
+        filter_file(
+            'find_package( duneopdet REQUIRED EXPORT )',
+            '',
+            'CMakeLists.txt'
+            )
+
     depends_on("c", type="build")
     depends_on("cxx", type="build")
-    depends_on("dunesim")
+    depends_on("cetmodules", type="build")
+    depends_on("cmake", type="build")
+    # makes a cycle, may not actually be used(!)
+    #depends_on("dunesim")
     depends_on("dunecalib")
     depends_on("duneopdet")
     depends_on("nuevdb")
-    depends_on("cetmodules", type="build")
-    depends_on("cmake", type="build")
 
 
     def cmake_args(self):
