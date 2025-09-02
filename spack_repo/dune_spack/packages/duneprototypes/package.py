@@ -49,24 +49,56 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
             'duneprototypes/Protodune/dualphase/CMakeLists.txt'
             )
         filter_file(
-            'find_package( dunesim REQUIRED EXPORT )',
+            'find_package\\( (dunesim|duneopdet) REQUIRED EXPORT \\)',
             '',
             'CMakeLists.txt'
             )
         filter_file(
-            'find_package( duneopdet REQUIRED EXPORT )',
-            '',
-            'CMakeLists.txt'
+                'duneopdet::OpticalDetector',
+                '',
+                'duneprototypes/Protodune/singlephase/NearlineMonitor/CMakeLists.txt',
             )
+        filter_file(
+                '#include "duneopdet.*',
+                '',
+                'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
+            )
+
+        for cmf in (
+                'CMakeLists.txt',
+                'duneprototypes/Coldbox/hd/CMakeLists.txt',
+                'duneprototypes/Coldbox/vd/CMakeLists.txt',
+                'duneprototypes/Iceberg/RawDecoding/CMakeLists.txt',
+                'duneprototypes/Protodune/dualphase/CMakeLists.txt',
+                'duneprototypes/Protodune/dualphase/Purity_module.cc',
+                'duneprototypes/Protodune/hd/RawDecoding/CMakeLists.txt',
+                'duneprototypes/Protodune/singlephase/NearlineMonitor/CMakeLists.txt',
+                'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
+                'duneprototypes/Protodune/singlephase/PhotonDetectors/CMakeLists.txt',
+                'duneprototypes/Protodune/singlephase/RawDecoding/CMakeLists.txt',
+                'duneprototypes/Protodune/spsbsm/SPSFilter/CMakeLists.txt',
+                'duneprototypes/Protodune/spsbsm/SPSProducer/CMakeLists.txt',
+                'duneprototypes/Protodune/vd/RawDecoding/CMakeLists.txt'):
+            filter_file(
+                'artdaq_core',
+                'artdaq-core',
+                cmf
+                )
+            filter_file(
+                'artdaq.core::artdaq.core_(Utilities|Data)',
+                'artdaq-core::\\1',
+                cmf
+                )
+
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
+    depends_on("dunecalib")
     # makes a cycle, may not actually be used(!)
     #depends_on("dunesim")
-    depends_on("dunecalib")
-    depends_on("duneopdet")
+    #depends_on("duneopdet")
     depends_on("nuevdb")
 
 
