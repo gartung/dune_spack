@@ -15,6 +15,7 @@ class Duneana(CMakePackage, FnalGithubPackage):
     git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
+    version("10_09_00d00", sha256="db3e5b55984992bd516f4ee4722c72400116d9e4cd5b3704b416459e65e5af72")
     version("10_08_02d00", sha256="7f9faf6bff0926c9958eaa2f74db6410559598788f48c5f0117e313d12fccee4")
     version("10_00_03d00", sha256="0db33f7a710b5a85c669d77db6a735fdbb354c70feb689051b080797d8d26712")
     version("09_92_00d00", sha256="fc0700c36f3334f70f7b3929b868bdf530a9f71f44dc205daa052d3755e4d08f")
@@ -33,6 +34,20 @@ class Duneana(CMakePackage, FnalGithubPackage):
     patch('v09_81_00d00.patch', when='@09_81_00d00')
     patch('v09_92_00d00.patch', when='@09_92_00d00')
 
+    def patch(self):
+
+        filter_file(
+                r'find_package\( duneanaobj REQUIRED EXPORT \)',
+                '',
+                'CMakeLists.txt',
+            )
+        for f in ('WireAna','AnaTree','CAFMaker'):
+            filter_file(
+                     r'duneanaobj::[a-zA-Z0-9]*',
+                     '',
+                     f'duneana/{f}/CMakeLists.txt',
+                 )
+
     depends_on("c", type="build")
     depends_on("cxx", type="build")
     depends_on("duneanaobj")
@@ -44,12 +59,14 @@ class Duneana(CMakePackage, FnalGithubPackage):
     depends_on("systematicstools")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
+    depends_on("duneopdet")
 
     def cmake_args(self):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
             self.define("CMAKE_MODULE_PATH", "%s/Modules;%s/Modules" %
-                       (self.spec['nufinder'].prefix, self.spec['larfinder'].prefix))
+                       (self.spec['nufinder'].prefix, self.spec['larfinder'].prefix)),
+            self.define("CMAKE_CXX_FLAGS","-I%s" % self.spec['duneanaobj'].prefix.include),
         ] 
         return args
 

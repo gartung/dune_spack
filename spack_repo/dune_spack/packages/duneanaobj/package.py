@@ -50,6 +50,8 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     def cmake_args(self):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
+            self.define("CMAKE_BUILD_DIR", self.prefix),
+            self.define("CMAKE_INSTALL_INCLUDEDIR", self.prefix.include),
         ] 
         return args
 

@@ -15,6 +15,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
     git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
+    version("10_09_00d00", sha256="24f24adb8991c9ea4c51d30c4c557c29e9880b7ec759742bc5e4691a206a8fb3")
     version("10_08_02d00", sha256="51a4e1511d88139e96e024150a1da592104d92d16e885dbe150fc9a7ef39406f")
     version("10_00_03d00", sha256="673f451a37a0fb0884aa5f739af3bd66b15ef614e8e5c532d81c91c8c0ad65c5")
     version("09_92_00d00", sha256="6f636aa889a8b2e3b926c003e96bec098d79bc025417a2ae281750eb9ce0d57c")
@@ -32,11 +33,25 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
+    def patch(self):
+
+        filter_file(
+                'find_package\( jsoncpp REQUIRED \)',
+                'pkg_check_modules( JSONCPP REQUIRED IMPORTED_TARGET jsoncpp )',
+                'CMakeLists.txt',
+            )
+        filter_file(
+                'jsoncpp',
+                'PkgConfig::jsoncpp',
+                'dunedataprep/DataPrep/WctTool/CMakeLists.txt',
+            )
+
     depends_on("c", type="build")
     depends_on("cxx", type="build")
     depends_on("dunecore")
     depends_on("jsonnet")
     depends_on("jsoncpp")
+    depends_on("larwirecell")
     depends_on("wire-cell-toolkit")
     depends_on("larwirecell")
     depends_on("cetmodules", type="build")
