@@ -12,7 +12,7 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
     """Duneanaobj"""
 
     repo = "DUNE/duneanaobj"
-    git  = "https://github.com/DUNE/duneanaobj"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00", "09.14.19"]
 
     version("03_10_00", sha256="35f025b77b3f5c6cc4666d1bbd04b2ff8f837a51670bbe5c0d80a7e3145164d8")

@@ -12,7 +12,7 @@ class Dunecore(CMakePackage, FnalGithubPackage):
     """Dunecore"""
 
     repo = "DUNE/dunecore"
-    git = "https://github.com/DUNE/dunecore"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
     version("10_09_00d00", sha256="3c5d359cfd658304a8de2531cafc1939a413cd0030de68c98f4c453c56239eb4") 

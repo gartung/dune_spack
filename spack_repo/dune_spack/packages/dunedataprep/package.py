@@ -12,6 +12,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
     """Dunedataprep"""
 
     repo = "DUNE/dunedataprep"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
     version("10_09_00d00", sha256="24f24adb8991c9ea4c51d30c4c557c29e9880b7ec759742bc5e4691a206a8fb3")
@@ -52,6 +53,7 @@ class Dunedataprep(CMakePackage, FnalGithubPackage):
     depends_on("jsoncpp")
     depends_on("larwirecell")
     depends_on("wire-cell-toolkit")
+    depends_on("larwirecell")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
     depends_on("root+spectrum")

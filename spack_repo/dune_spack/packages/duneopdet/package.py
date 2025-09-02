@@ -12,6 +12,7 @@ class Duneopdet(CMakePackage, FnalGithubPackage):
     """Duneopdet"""
 
     repo = "DUNE/duneopdet"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="c6913cb4f58faea4c279300ea41f51bf51e2c822c2fbd2b5daad70dd97648109")

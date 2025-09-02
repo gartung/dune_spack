@@ -12,6 +12,7 @@ class Dunepdlegacy(CMakePackage, FnalGithubPackage):
     """Dunepdlegacy"""
 
     repo = "DUNE/dunepdlegacy"
+    git = "https://github.com/%s.git" % repo
     version_patterns = ["09_00_00", "09.14.19"]
 
     version("1_01_05", sha256="60876ea0041c6054dba31789806d248bb9a2e74eec76bb90ae9711b6c8b86705")
