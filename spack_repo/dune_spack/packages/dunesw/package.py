@@ -13,7 +13,7 @@ class Dunesw(CMakePackage, FnalGithubPackage):
 
     repo = "DUNE/dunesw"
     git = "https://github.com/%s.git" % repo
-    version_patterns = ["09_00_00d00", "09.14.19"]
+    version_patterns = ["v09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="d617560b80eadff1bac4e0b17a7ada47f187062341de83f6293e94126816f3dd")
     version("10_00_03d00", sha256="dbfc1dfa606a0c44152b39ae9f4efc5084436984dcbe00370da354c9f44fb966")
