@@ -13,7 +13,7 @@ class Dunereco(CMakePackage, FnalGithubPackage):
 
     repo = "DUNE/dunereco"
     git = "https://github.com/%s.git" % repo
-    version_patterns = ["09_00_00d00", "09.14.19"]
+    version_patterns = ["v09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="1e2c283ceb0a59c6f907be327255b5fc5234a233e0a998d1b90e42fb4ec6e793")
     version("10_00_03d00", sha256="1c14a337a18b610accc24e5fb7816b029b7bde5e02f95e0684677e02847e3c5c")

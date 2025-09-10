@@ -13,7 +13,7 @@ class Dunecalib(CMakePackage, FnalGithubPackage):
 
     repo = "DUNE/dunecalib"
     git = "https://github.com/%s.git" % repo
-    version_patterns = ["09_00_00d00", "09.14.19"]
+    version_patterns = ["v09_00_00d00", "09.14.19"]
 
     version("10_08_02d00", sha256="059311324acce8eebb331923ad428397eb31e97965a18fb265de9a0d36436fc8")
     version("10_00_03d00", sha256="9e83970562ee11e07cc3da6c322c8773d73ea466e9ab5c33ab67c44172077404")
