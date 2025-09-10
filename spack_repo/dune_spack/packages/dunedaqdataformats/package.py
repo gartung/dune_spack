@@ -11,7 +11,7 @@ from spack.package import *
 class Dunedaqdataformats(Package):
     """Dunedaqdataformats"""
 
-    git = "https://github.com/DUNE/dunedaqdataformats.git"
+    git = "https://github.com/DUNE/dunedaqdataformats"
     url = "https://github.com/DUNE/dunedaqdataformats/archive/refs/tags/v4_4_5.tar.gz"
 
     version("4_4_5", url = "https://github.com/DUNE/dunedaqdataformats/archive/refs/tags/v4_4_5.tar.gz", sha256="fee62823c3a829331f417fc25b59f5203bb0ce4cf7e95d2ea3dbcd11ceb0b10c")

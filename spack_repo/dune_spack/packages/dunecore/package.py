@@ -12,16 +12,27 @@ class Dunecore(CMakePackage, FnalGithubPackage):
     """Dunecore"""
 
     repo = "DUNE/dunecore"
-    git = "https://github.com/%s.git" % repo
+    git = "https://github.com/%s" % repo
     version_patterns = ["v09_00_00d00", "09.14.19"]
 
+    version("10_10_02d00", sha256="2d65081ec4ec52a2d341f4bb05326bad710ab41f25af3c369b9ea28f74ffb455")
+    version("10_10_00d00", sha256="b7323d708b76b8729306bf6b669ed76549baf63a967224ec85034aab2e4ad765")
     version("10_09_00d00", sha256="3c5d359cfd658304a8de2531cafc1939a413cd0030de68c98f4c453c56239eb4") 
     version("10_08_02d00", sha256="e2f0667237b7982461fb6770805ee265dce76ba53e97ada93c33046dfb4a557c")
+    version("10_08_01d00", sha256="09e6a73ef38156037ef77b30e56ef06cbb0c4bbaa11ec8c76791253c9236e6b9")
+    version("10_08_00d00", sha256="f4f345ad81f1f3548c70362342c1b6646040f6f0f0f8c5f3895f6b55e4712e1d")
+    version("10_07_00d00", sha256="0b18c8abe1c61e7ccf8d3a6927f9d10d731863c7c19a70d8358b66547646f85f")
+    version("10_06_00d01", sha256="3b59c06f49c3d44bed7bbed0d755ce828c9f058e95d55caab9ae8d9faf1458b9")
+    version("10_06_00d00", sha256="c05edc3808fa06010400133e3c03c5b7cb62f76faed6ce5772340e14f66eecea")
     version("10_00_03d00", sha256="853476dfd8e1c97e34e03d0bf47a393a4de2e61af3b7623a41a7004c24851647")
     version("09_92_00d00", sha256="37edf3afd3be02cbd64adef1ab1c5c9c7e275d7ffcee44ffce2172451f94dbcd")
+    version("09_91_04d01", sha256="9ffa4a416c06f9d921b03f80e0b24eeaf877a5a7de67d3cb00ed145e0466dbfd")
     version("09_89_01d01", sha256="cf61a68d0810103bd45a1133a969378817caf2e09be87ebcaea718ac4bd09060")
     version("09_81_00d00", sha256="4dd8f63fd791167bc55c5fba28f0a9310c2339c0cc3c70bd15e510d36d0ff972")
     version("develop", branch="develop", get_full_repo=True)
+
+    def _url_for_tag(self, version_str):
+        return f"{self.git}/archive/refs/tags/v{version_str}.tar.gz"
 
     variant(
         "cxxstd",

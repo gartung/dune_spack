@@ -11,7 +11,7 @@ class DuneTms(CMakePackage):
 
     license("MIT")
     homepage = "https://github.com/DUNE/dune-tms"
-    git = "https://github.com/DUNE/dune-tms.git"
+    git = "https://github.com/DUNE/dune-tms"
 
     executables = ["^BField_tester$",
                    "^BetheBloch_Example$",

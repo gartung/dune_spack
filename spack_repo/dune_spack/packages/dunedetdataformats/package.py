@@ -9,7 +9,7 @@ from spack.package import *
 
 class Dunedetdataformats(Package):
     """Dunedetdataformats"""
-    git = "https://github.com/DUNE/dunedetdataformats.git"
+    git = "https://github.com/DUNE/dunedetdataformats"
     url = "https://github.com/DUNE/dunedetdataformats/archive/refs/tags/v4_4_5.tar.gz"
     version("4_4_5", url = "https://github.com/DUNE/dunedetdataformats/archive/refs/tags/v4_4_5.tar.gz", sha256="82e69cb0397d910f53664a8276766230489440f37001a4980520b13c7e23b4fc")
     version("4_4_4", url = "https://github.com/DUNE/dunedetdataformats/archive/refs/tags/v4_4_4.tar.gz", sha256="ae4f18a4f3c09f503a0dca5373fb9b08ad04bfc4ead323605121ff3ec76a22df")

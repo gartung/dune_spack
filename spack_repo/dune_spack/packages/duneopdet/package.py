@@ -12,15 +12,27 @@ class Duneopdet(CMakePackage, FnalGithubPackage):
     """Duneopdet"""
 
     repo = "DUNE/duneopdet"
-    git = "https://github.com/%s.git" % repo
+    git = "https://github.com/%s" % repo
     version_patterns = ["v09_00_00d00", "09.14.19"]
 
+    version("10_10_02d00", sha256="7d9ca71730dfff92e71f4944f4773b707e9d3cf25e0e39633117d1cccfcd73e7")
+    version("10_10_00d00", sha256="57ebcaa2c6bde3fa92b6d6d7a2055357b4159fa16763d9442aa779413ae8da03")
+    version("10_09_00d00", sha256="5400fd1965fe8fb8e7b593df211e5bdb58304ce4666cf3a64e84323c1cad8571")
     version("10_08_02d00", sha256="c6913cb4f58faea4c279300ea41f51bf51e2c822c2fbd2b5daad70dd97648109")
+    version("10_08_01d00", sha256="c07a292819fbbfc355b6ebf07b20e31229b52ab447bb63623ed5581d3828d299")
+    version("10_08_00d00", sha256="11289d52d4dba384159759b877bccf2fee767a9797e58a47c49d04838985e528")
+    version("10_07_00d00", sha256="906ed91786cad969b8a284853d0c5255757b7f4dda70213c92d5db38a60082fd")
+    version("10_06_00d01", sha256="f296d7e723f61cc1ec4494a11e9f1e4acc42547ecffe89f849f0b4de4487109f")
+    version("10_06_00d00", sha256="664b5ae1194ab24649ffa539b88345d636b0c9ce549545b1d13233c96a7d3d2a")
     version("10_00_03d00", sha256="b3b62f15d20a2db3389e1cdd4480280316f87ee915a81fd4f0d050fc9e202868")
     version("09_92_00d00", sha256="6003147a6b8a0d943a9f11ceebc4ab2fbac48b9041ad78f560a7bd3ae27b4929")
+    version("09_91_04d01", sha256="de57b818cad3c7fea523666d0b2da423d05524a90e8892909c347eef830eaaa2")
     version("09_89_01d01", sha256="d39bf58d4dedf985f51d8b2d272354047603fc520145b282d17c85cd7877fdbe")
     version("09_81_00d00", sha256="ea4e39071507f9f1697ba2251481d2ff9396238a33ee38c0fe68070c2c1a9750")
     version("develop", branch="develop", get_full_repo=True)
+
+    def _url_for_tag(self, version_str):
+        return f"{self.git}/archive/refs/tags/v{version_str}.tar.gz"
 
 
     variant(

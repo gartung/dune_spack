@@ -11,7 +11,7 @@ class EdepSim(CMakePackage):
 
     license("MIT")
     homepage = "https://github.com/ClarkMcGrew/edep-sim"
-    git = "https://github.com/ClarkMcGrew/edep-sim.git"
+    git = "https://github.com/ClarkMcGrew/edep-sim"
     url = "https://github.com/ClarkMcGrew/edep-sim/archive/refs/tags/3.2.0.tar.gz"
 
     executables = ["^edep-sim$", "^edep-disp$"]
