@@ -44,7 +44,7 @@ class Protoduneana(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
-    with when("^artdaq-core@4.0.0:"):
+    with when("^artdaq-core@v4_00_00:"):
         def patch(self):
             filter_file(
                     "artdaq_core",
