@@ -77,7 +77,7 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
                 'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
             )
 
-        with when("^artdaq-core@4.0.0:"):
+        with when('^artdaq-core@v4_00_00:'):
             for cmf in (
                 'CMakeLists.txt',
                 'duneprototypes/Coldbox/hd/CMakeLists.txt',
@@ -93,7 +93,6 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
                 'duneprototypes/Protodune/spsbsm/SPSFilter/CMakeLists.txt',
                 'duneprototypes/Protodune/spsbsm/SPSProducer/CMakeLists.txt',
                 'duneprototypes/Protodune/vd/RawDecoding/CMakeLists.txt'):
-
                 filter_file(
                     'artdaq_core',
                     'artdaq-core',

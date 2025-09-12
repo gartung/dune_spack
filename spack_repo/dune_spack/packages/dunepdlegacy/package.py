@@ -43,7 +43,7 @@ class Dunepdlegacy(CMakePackage, FnalGithubPackage):
     patch('v09_81_00d00.patch', when='@1_01_00')
 
     def patch(self):
-        with when("^artdaq-core@4.0.0:"):
+        with when("^artdaq-core@v4_00_00:"):
             filter_file(
                     "artdaq_core",
                     "artdaq-core",

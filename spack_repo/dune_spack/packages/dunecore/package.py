@@ -50,7 +50,7 @@ class Dunecore(CMakePackage, FnalGithubPackage):
         filter_file(r'find_package\( nusimdata REQUIRED EXPORT \)$',
                     'find_package( nusimdata REQUIRED EXPORT )\nfind_package( gallery REQUIRED EXPORT )',
                     'CMakeLists.txt')
-        with when("^artdaq-core@4.0.0:"):
+        with when('^artdaq-core@v4_00_00:'):
             filter_file(
                     "artdaq_core",
                     "artdaq-core",
