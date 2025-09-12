@@ -77,31 +77,32 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
                 'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
             )
 
-        for cmf in (
-                'CMakeLists.txt',
-                'duneprototypes/Coldbox/hd/CMakeLists.txt',
-                'duneprototypes/Coldbox/vd/CMakeLists.txt',
-                'duneprototypes/Iceberg/RawDecoding/CMakeLists.txt',
-                'duneprototypes/Protodune/dualphase/CMakeLists.txt',
-                'duneprototypes/Protodune/dualphase/Purity_module.cc',
-                'duneprototypes/Protodune/hd/RawDecoding/CMakeLists.txt',
-                'duneprototypes/Protodune/singlephase/NearlineMonitor/CMakeLists.txt',
-                'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
-                'duneprototypes/Protodune/singlephase/PhotonDetectors/CMakeLists.txt',
-                'duneprototypes/Protodune/singlephase/RawDecoding/CMakeLists.txt',
-                'duneprototypes/Protodune/spsbsm/SPSFilter/CMakeLists.txt',
-                'duneprototypes/Protodune/spsbsm/SPSProducer/CMakeLists.txt',
-                'duneprototypes/Protodune/vd/RawDecoding/CMakeLists.txt'):
-            filter_file(
-                'artdaq_core',
-                'artdaq-core',
-                cmf
-                )
-            filter_file(
-                'artdaq.core::artdaq.core_(Utilities|Data)',
-                'artdaq-core::\\1',
-                cmf
-                )
+        with when('^artdaq-core@v4_00_00:'):
+            for cmf in (
+                    'CMakeLists.txt',
+                    'duneprototypes/Coldbox/hd/CMakeLists.txt',
+                    'duneprototypes/Coldbox/vd/CMakeLists.txt',
+                    'duneprototypes/Iceberg/RawDecoding/CMakeLists.txt',
+                    'duneprototypes/Protodune/dualphase/CMakeLists.txt',
+                    'duneprototypes/Protodune/dualphase/Purity_module.cc',
+                    'duneprototypes/Protodune/hd/RawDecoding/CMakeLists.txt',
+                    'duneprototypes/Protodune/singlephase/NearlineMonitor/CMakeLists.txt',
+                    'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
+                    'duneprototypes/Protodune/singlephase/PhotonDetectors/CMakeLists.txt',
+                    'duneprototypes/Protodune/singlephase/RawDecoding/CMakeLists.txt',
+                    'duneprototypes/Protodune/spsbsm/SPSFilter/CMakeLists.txt',
+                    'duneprototypes/Protodune/spsbsm/SPSProducer/CMakeLists.txt',
+                    'duneprototypes/Protodune/vd/RawDecoding/CMakeLists.txt'):
+                filter_file(
+                    'artdaq_core',
+                    'artdaq-core',
+                    cmf
+                    )
+                filter_file(
+                    'artdaq.core::artdaq.core_(Utilities|Data)',
+                    'artdaq-core::\\1',
+                    cmf
+                    )
 
 
     depends_on("c", type="build")
