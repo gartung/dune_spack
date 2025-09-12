@@ -50,26 +50,27 @@ class Dunecore(CMakePackage, FnalGithubPackage):
         filter_file(r'find_package\( nusimdata REQUIRED EXPORT \)$',
                     'find_package( nusimdata REQUIRED EXPORT )\nfind_package( gallery REQUIRED EXPORT )',
                     'CMakeLists.txt')
-        filter_file(
-                "artdaq_core",
-                "artdaq-core",
-                "CMakeLists.txt"
-                )
-        filter_file(
-                "artdaq_core",
-                "artdaq-core",
-                "dunecore/RawDecoding/CMakeLists.txt"
-                )
-        filter_file(
-                "artdaq-core::artdaq-core_Data",
-                "artdaq-core::Data",
-                "dunecore/RawDecoding/CMakeLists.txt"
-                )
-        filter_file(
-                "artdaq-core::artdaq-core_Utilities",
-                "artdaq-core::Utilities",
-                "dunecore/RawDecoding/CMakeLists.txt"
-                )
+        with when("^artdaq-core@4.0.0:"):
+            filter_file(
+                    "artdaq_core",
+                    "artdaq-core",
+                    "CMakeLists.txt"
+                    )
+            filter_file(
+                    "artdaq_core",
+                    "artdaq-core",
+                    "dunecore/RawDecoding/CMakeLists.txt"
+                    )
+            filter_file(
+                    "artdaq-core::artdaq-core_Data",
+                    "artdaq-core::Data",
+                    "dunecore/RawDecoding/CMakeLists.txt"
+                    )
+            filter_file(
+                    "artdaq-core::artdaq-core_Utilities",
+                    "artdaq-core::Utilities",
+                    "dunecore/RawDecoding/CMakeLists.txt"
+                    )
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
