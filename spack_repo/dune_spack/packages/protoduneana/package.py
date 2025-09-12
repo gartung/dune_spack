@@ -44,9 +44,29 @@ class Protoduneana(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
+    def patch(self):
+        filter_file(
+                "artdaq_core",
+                "artdaq-core",
+                "CMakeLists.txt"
+                )
+        filter_file(
+                "artdaq_core",
+                "artdaq-core",
+                "protoduneana/singlephase/PhotonDetectors/CMakeLists.txt"
+                )
+        filter_file(
+                "artdaq-core::artdaq-core_Data",
+                "artdaq-core::Data",
+                "protoduneana/singlephase/PhotonDetectors/CMakeLists.txt"
+                )
+
     depends_on("c", type="build")
     depends_on("cxx", type="build")
     depends_on("duneprototypes")
+    depends_on("dunesim")
+    depends_on("python")
+    depends_on("py-tensorflow")
     depends_on("geant4reweight")
     depends_on("nusystematics")
     depends_on("systematicstools")
@@ -61,6 +81,14 @@ class Protoduneana(CMakePackage, FnalGithubPackage):
             self.define("CMAKE_MODULE_PATH", "%s/Modules;%s/Modules" %
                        (self.spec['nufinder'].prefix, self.spec['larfinder'].prefix)),
         ] 
+        with when("+tensorflow"):
+            tdir = "{0}/lib/python{1}/site-packages/tensorflow".format(
+                    self.spec["py-tensorflow"].prefix, self.spec["python"].version.up_to(2)
+                    )
+            args.append("-DTensorFlow_ROOT:FILEPATH={0}".format(tdir))
+            args.append("-DTensorFlow_cc_LIBRARY:FILEPATH={0}/libtensorflow_cc.so.2".format(tdir))
+            args.append("-DTensorFlow_framework_LIBRARY:FILEPATH={0}/libtensorflow_framework.so.2".format(tdir))
+
         return args
 
     def setup_run_environment(self, run_env):
