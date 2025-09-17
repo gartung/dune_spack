@@ -44,8 +44,8 @@ class Protoduneana(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
-    with when("^artdaq-core@v4_00_00:"):
-        def patch(self):
+    def patch(self):
+        with when("^artdaq-core@v4_00_00:"):
             filter_file(
                     "artdaq_core",
                     "artdaq-core",
@@ -64,6 +64,12 @@ class Protoduneana(CMakePackage, FnalGithubPackage):
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
+    depends_on("artdaq-core")
+    depends_on("larrecodnn")
+    depends_on("torch-scatter")
+    depends_on("grpc")
+    depends_on("hep-hpc")
+    depends_on("duneopdet")
     depends_on("duneprototypes")
     depends_on("dunesim")
     depends_on("python")
