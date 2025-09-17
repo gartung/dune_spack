@@ -43,24 +43,7 @@ class Protoduneana(CMakePackage, FnalGithubPackage):
     )
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
-
-    def patch(self):
-        with when("^artdaq-core@v4_00_00:"):
-            filter_file(
-                    "artdaq_core",
-                    "artdaq-core",
-                    "CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq_core",
-                    "artdaq-core",
-                    "protoduneana/singlephase/PhotonDetectors/CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq-core::artdaq-core_Data",
-                    "artdaq-core::Data",
-                    "protoduneana/singlephase/PhotonDetectors/CMakeLists.txt"
-                    )
+    patch('artdaq-core-v4.0.patch', when='^v4:')
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

@@ -1,0 +1,41 @@
+--- protoduneana-10_10_02d00/CMakeLists.txt     2025-08-29 18:02:49.000000000 -0500
++++ spack-src/CMakeLists.txt    2025-09-17 16:40:46.835429704 -0500
+@@ -37,7 +37,7 @@
+ 
+ # these are minimum required versions, not the actual product versions
+ find_package( Boost REQUIRED COMPONENTS system ) # Needs to be first to cover for a missing transitive
+-                  # dependency from artdaq_core.
++                  # dependency from artdaq-core.
+ find_package( Geant4 REQUIRED )
+ find_package(ROOT REQUIRED)
+ 
+@@ -71,7 +71,7 @@
+ find_package( messagefacility REQUIRED )
+ find_package( PostgreSQL REQUIRED )
+ find_package( dunepdlegacy REQUIRED EXPORT )
+-find_package( artdaq_core REQUIRED EXPORT )
++find_package( artdaq-core REQUIRED EXPORT )
+ find_package( TRACE REQUIRED )
+ find_package( ifdh_art REQUIRED )
+ find_package( ifdhc REQUIRED )
+--- protoduneana-10_10_02d00/protoduneana/singlephase/PhotonDetectors/CMakeLists.txt    2025-08-29 18:02:49.000000000 -0500
++++ spack-src/protoduneana/singlephase/PhotonDetectors/CMakeLists.txt   2025-09-17 16:40:46.835429704 -0500
+@@ -7,7 +7,7 @@
+                         lardata::Utilities
+                         dunepdlegacy::Overlays
+                         duneprototypes::Protodune_singlephase_Utility
+-                        artdaq_core::artdaq-core_Data
++                        artdaq-core::Data
+                         dunecore::Geometry
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -35,7 +35,7 @@
+                         dunepdlegacy::Overlays
+                         lardata::Utilities
+                         duneprototypes::Protodune_singlephase_Utility
+-                        artdaq_core::artdaq-core_Data
++                        artdaq-core::Data
+                         dunecore::Geometry
+                         nusimdata::SimulationBase
+                         larsim::MCCheater_PhotonBackTrackerService_service
+
