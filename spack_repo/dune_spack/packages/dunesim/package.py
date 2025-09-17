@@ -44,7 +44,7 @@ class Dunesim(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
     patch('v09_92_00d00.patch', when='@09_92_00d00')
-    patch('v10_10_02d00.pathc', when='@10_10_02d00')
+    patch('v10_10_02d00.patch', when='@10_10_02d00')
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
