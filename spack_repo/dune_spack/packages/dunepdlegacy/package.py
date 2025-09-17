@@ -41,29 +41,7 @@ class Dunepdlegacy(CMakePackage, FnalGithubPackage):
 
     patch('v1_01_05.patch', when='@1_01_05')
     patch('v09_81_00d00.patch', when='@1_01_00')
-
-    def patch(self):
-        with when("^artdaq-core@v4_00_00:"):
-            filter_file(
-                    "artdaq_core",
-                    "artdaq-core",
-                    "CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq_core",
-                    "artdaq-core",
-                    "dunepdlegacy/Overlays/CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq-core::artdaq-core_Data",
-                    "artdaq-core::Data",
-                    "dunepdlegacy/Overlays/CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq-core::artdaq-core_Utilities",
-                    "artdaq-core::Utilities",
-                    "dunepdlegacy/Overlays/CMakeLists.txt"
-                    )
+    patch('artdaq-core-4.0.patch', when='^artdaq-core@v4:')
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

@@ -1,0 +1,414 @@
+--- duneprototypes-10_10_02d00/duneprototypes/Protodune/vd/RawDecoding/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Protodune/vd/RawDecoding/CMakeLists.txt	2025-09-17 11:38:36.888980732 -0500
+@@ -49,8 +49,8 @@
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunecore::ChannelMap_TPCChannelMapService_service
+ 			art::Framework_Core
+                         art::Framework_Principal
+@@ -74,8 +74,8 @@
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+                         art_root_io::tfile_support
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         ROOT::Core
+                         art_root_io::TFileService_service
+                         art::Persistency_Provenance
+@@ -94,8 +94,8 @@
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+                         art_root_io::tfile_support
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         ROOT::Core
+                         art_root_io::TFileService_service
+                         art::Persistency_Provenance
+--- duneprototypes-10_10_02d00/duneprototypes/Protodune/hd/RawDecoding/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Protodune/hd/RawDecoding/CMakeLists.txt	2025-09-17 11:38:36.883980725 -0500
+@@ -97,8 +97,8 @@
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
+ 			art::Framework_Core
+                         art::Framework_Principal
+@@ -120,8 +120,8 @@
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
+ 			art::Framework_Core
+                         art::Framework_Principal
+@@ -143,8 +143,8 @@
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
+ 			art::Framework_Core
+                         art::Framework_Principal
+@@ -170,8 +170,8 @@
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+                         art_root_io::tfile_support
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         ROOT::Core
+                         art_root_io::TFileService_service
+                         art::Persistency_Provenance
+@@ -191,8 +191,8 @@
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+                         art_root_io::tfile_support
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         ROOT::Core
+                         art_root_io::TFileService_service
+                         art::Persistency_Provenance
+@@ -212,8 +212,8 @@
+ 		art::Framework_Principal
+ 		art::Framework_Services_Registry
+ 		art_root_io::tfile_support
+-		artdaq_core::artdaq-core_Data
+-		artdaq_core::artdaq-core_Utilities
++		artdaq-core::Data
++		artdaq-core::Utilities
+ 		ROOT::Core
+ 		art_root_io::TFileService_service
+ 		art::Persistency_Provenance
+@@ -253,8 +253,8 @@
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        #artdaq_core::artdaq-core_Data
+-                        #artdaq_core::artdaq-core_Utilities
++                        #artdaq-core::Data
++                        #artdaq-core::Utilities
+                         #duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
+                         duneprototypes_Protodune_hd_ChannelMap_DAPHNEChannelMapService_service
+                         DAPHNEUtils
+@@ -278,8 +278,8 @@
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        #artdaq_core::artdaq-core_Data
+-                        #artdaq_core::artdaq-core_Utilities
++                        #artdaq-core::Data
++                        #artdaq-core::Utilities
+                         #duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
+                         duneprototypes_Protodune_hd_ChannelMap_DAPHNEChannelMapService_service
+                         DAPHNEUtils
+--- duneprototypes-10_10_02d00/duneprototypes/Protodune/singlephase/RawDecoding/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Protodune/singlephase/RawDecoding/CMakeLists.txt	2025-09-17 11:38:36.886980730 -0500
+@@ -6,8 +6,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -27,7 +27,7 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Utilities
+                         art::Framework_Core
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+@@ -48,8 +48,8 @@
+                         lardata::headers
+                         dunepdlegacy::Overlays
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         art::Framework_Core
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+@@ -68,8 +68,8 @@
+                          lardataobj::RecoBase
+                          dunepdlegacy::Overlays
+                          dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+- 			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++ 			artdaq-core::Data
++			artdaq-core::Utilities
+                          art::Framework_Core
+                          art::Framework_Principal
+                          art::Framework_Services_Registry
+@@ -88,8 +88,8 @@
+ cet_build_plugin(RceRawDecoder art::module LIBRARIES
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -107,8 +107,8 @@
+ cet_build_plugin(FelixRawDecoder art::module LIBRARIES
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+ 			dunecore::Geometry
+                         art::Framework_Core
+@@ -128,8 +128,8 @@
+ cet_build_plugin(FelixIntegrityTest art::module LIBRARIES
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+ 			dunecore::Geometry
+                         art::Framework_Core
+@@ -150,8 +150,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -170,8 +170,8 @@
+ cet_build_plugin(CRTRawDecoder art::module LIBRARIES
+                         dunepdlegacy::Overlays
+                         dunecore::Geometry
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         art::Framework_Core
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+@@ -187,8 +187,8 @@
+ 
+ cet_build_plugin(PDSPCTBRawDecoder art::module LIBRARIES
+                         dunepdlegacy::Overlays
+-			artdaq_core::artdaq-core_Data
+-			artdaq_core::artdaq-core_Utilities
++			artdaq-core::Data
++			artdaq-core::Utilities
+                         art::Framework_Core
+                         art::Framework_Principal
+                         art::Framework_Services_Registry
+@@ -209,8 +209,8 @@
+                   LIBRARIES
+                   lardataobj::RawData
+                   dunepdlegacy::Overlays
+-                  artdaq_core::artdaq-core_Data
+-		  artdaq_core::artdaq-core_Utilities
++                  artdaq-core::Data
++		  artdaq-core::Utilities
+                   art::Framework_Core
+                   art::Framework_Principal
+                   art::Framework_Services_Registry
+--- duneprototypes-10_10_02d00/duneprototypes/Protodune/singlephase/PhotonDetectors/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Protodune/singlephase/PhotonDetectors/CMakeLists.txt	2025-09-17 11:38:36.885980728 -0500
+@@ -2,7 +2,7 @@
+                         lardataobj::RawData
+                         lardataobj::RecoBase
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
++                        artdaq-core::Data
+                         dunecore::Geometry
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -20,7 +20,7 @@
+                         lardataobj::RawData
+                         lardataobj::RecoBase
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
++                        artdaq-core::Data
+                         dunecore::Geometry
+                         nusimdata::SimulationBase
+                         larsim_MCCheater_PhotonBackTrackerService_service
+--- duneprototypes-10_10_02d00/duneprototypes/Protodune/spsbsm/SPSFilter/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Protodune/spsbsm/SPSFilter/CMakeLists.txt	2025-09-17 11:38:36.887980731 -0500
+@@ -16,8 +16,8 @@
+   art_root_io::TFileService_service
+   art::Persistency_Provenance
+ 	art::Utilities
+-  artdaq_core::artdaq-core_Data
+-  artdaq_core::artdaq-core_Utilities
++  artdaq-core::Data
++  artdaq-core::Utilities
+   messagefacility::MF_MessageLogger
+   ROOT::Core ROOT::Hist ROOT::Tree
+   BASENAME_ONLY
+@@ -35,8 +35,8 @@
+   art_root_io::TFileService_service
+   art::Persistency_Provenance
+ 	art::Utilities
+-  artdaq_core::artdaq-core_Data
+-  artdaq_core::artdaq-core_Utilities
++  artdaq-core::Data
++  artdaq-core::Utilities
+   messagefacility::MF_MessageLogger
+   ROOT::Core ROOT::Hist ROOT::Tree
+   BASENAME_ONLY
+--- duneprototypes-10_10_02d00/duneprototypes/Protodune/spsbsm/SPSProducer/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Protodune/spsbsm/SPSProducer/CMakeLists.txt	2025-09-17 11:38:36.887980731 -0500
+@@ -16,8 +16,8 @@
+   art_root_io::TFileService_service
+   art::Persistency_Provenance
+ 	art::Utilities
+-  artdaq_core::artdaq-core_Data
+-  artdaq_core::artdaq-core_Utilities
++  artdaq-core::Data
++  artdaq-core::Utilities
+   messagefacility::MF_MessageLogger
+   ROOT::Core ROOT::Hist ROOT::Tree
+   BASENAME_ONLY
+--- duneprototypes-10_10_02d00/duneprototypes/Coldbox/vd/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Coldbox/vd/CMakeLists.txt	2025-09-17 11:38:36.877980717 -0500
+@@ -10,8 +10,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+                         dunecore::HDF5Utils
+                         HDF5::HDF5
+--- duneprototypes-10_10_02d00/duneprototypes/Coldbox/hd/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Coldbox/hd/CMakeLists.txt	2025-09-17 11:38:36.876980716 -0500
+@@ -6,8 +6,8 @@
+ cet_build_plugin(HDColdboxDataInterface   art::tool LIBRARIES
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_PdspChannelMapService_service
+                         dunecore::HDF5Utils
+                         HDF5::HDF5
+@@ -30,8 +30,8 @@
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
+ 			art::Framework_Core
+                         art::Framework_Principal
+--- duneprototypes-10_10_02d00/duneprototypes/Iceberg/RawDecoding/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/duneprototypes/Iceberg/RawDecoding/CMakeLists.txt	2025-09-17 11:38:36.877980717 -0500
+@@ -10,8 +10,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_IcebergChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -32,8 +32,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_IcebergChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -57,8 +57,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_IcebergChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -81,8 +81,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_IcebergChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+@@ -104,8 +104,8 @@
+                         lardataobj::RawData
+                         dunepdlegacy::Overlays
+                         dunecore::DuneObj
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunepdlegacy::Services_ChannelMap_IcebergChannelMapService_service
+                         art::Framework_Core
+                         art::Framework_Principal
+--- duneprototypes-10_10_02d00/CMakeLists.txt	2025-08-29 18:02:31.000000000 -0500
++++ spack-src/CMakeLists.txt	2025-09-17 11:38:36.876980716 -0500
+@@ -43,13 +43,13 @@
+ find_package( larana REQUIRED EXPORT )
+ find_package( larevt REQUIRED EXPORT )
+ find_package( larsim REQUIRED EXPORT )
+ find_package( duneopdet REQUIRED EXPORT )
+ find_package( dunecalib REQUIRED EXPORT )
+find_package( dunesim REQUIRED EXPORT )
+ find_package( nusimdata REQUIRED EXPORT )
+ find_package( nug4 REQUIRED EXPORT )
+ find_package( dunepdlegacy REQUIRED EXPORT )
+-find_package( artdaq_core REQUIRED EXPORT )
++find_package( artdaq-core REQUIRED EXPORT )
+ find_package( TRACE REQUIRED )
+ find_package( CLHEP REQUIRED )
+ find_package( dunedaqdataformats REQUIRED EXPORT )

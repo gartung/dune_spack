@@ -1,0 +1,30 @@
+--- dunepdlegacy-1_01_05/CMakeLists.txt	2024-04-17 13:14:59.000000000 -0500
++++ spack-src/CMakeLists.txt	2025-09-17 10:44:12.316794645 -0500
+@@ -33,11 +33,11 @@
+ find_package(nufinder REQUIRED)
+ # these are minimum required versions, not the actual product versions
+ find_package(Boost REQUIRED COMPONENTS system) # Needs to be first to cover for a missing transitive
+-                 # dependency from artdaq_core.
+-find_package( artdaq_core REQUIRED )
++                 # dependency from artdaq-core.
++find_package( artdaq-core REQUIRED )
+ find_package( art REQUIRED )
+ find_package( cetlib REQUIRED )
+-find_package( gallery REQUIRED )
++find_package( gallery REQUIRED EXPORT)
+ find_package( messagefacility REQUIRED )
+ 
+ # have to make sure cmake doesn't select the system libraries
+--- dunepdlegacy-1_01_05/dunepdlegacy/Overlays/CMakeLists.txt	2024-04-17 13:14:59.000000000 -0500
++++ spack-src/dunepdlegacy/Overlays/CMakeLists.txt	2025-09-17 10:44:12.318794648 -0500
+@@ -4,8 +4,8 @@
+ art_make(BASENAME_ONLY
+                LIBRARY_NAME dunepdlegacy_Overlays
+                LIB_LIBRARIES
+-               artdaq_core::artdaq-core_Data
+-               artdaq_core::artdaq-core_Utilities
++               artdaq-core::Data
++               artdaq-core::Utilities
+   cetlib_except::cetlib_except
+   fhiclcpp::fhiclcpp
+   messagefacility::MF_MessageLogger

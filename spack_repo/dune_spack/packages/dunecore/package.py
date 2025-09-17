@@ -44,33 +44,12 @@ class Dunecore(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
     patch('v09_92_00d00.patch', when='@09_92_00d00')
-
+    patch('artdaq-core-4.0.patch', when='^artdaq-core@v4:')
     def patch(self):
         filter_file('LANGUAGES CXX', 'LANGUAGES CXX C', 'CMakeLists.txt')
         filter_file(r'find_package\( nusimdata REQUIRED EXPORT \)$',
                     'find_package( nusimdata REQUIRED EXPORT )\nfind_package( gallery REQUIRED EXPORT )',
                     'CMakeLists.txt')
-        with when('^artdaq-core@v4_00_00:'):
-            filter_file(
-                    "artdaq_core",
-                    "artdaq-core",
-                    "CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq_core",
-                    "artdaq-core",
-                    "dunecore/RawDecoding/CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq-core::artdaq-core_Data",
-                    "artdaq-core::Data",
-                    "dunecore/RawDecoding/CMakeLists.txt"
-                    )
-            filter_file(
-                    "artdaq-core::artdaq-core_Utilities",
-                    "artdaq-core::Utilities",
-                    "dunecore/RawDecoding/CMakeLists.txt"
-                    )
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

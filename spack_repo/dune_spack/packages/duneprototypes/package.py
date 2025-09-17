@@ -44,65 +44,10 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
 
-    def patch(self):
-        # clean out vestigial dunesim, duneprototypes references
-        filter_file(
-            '#include "dunesim/DetSim/Service/DPhaseSimChannelExtractService.h"',
-            '',
-            'duneprototypes/Protodune/dualphase/Purity_module.cc'
-            )
-        filter_file(
-                'r#include "duneopdet.*',
-                '',
-                'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
-            )
-        filter_file(
-            'dunesim::DetSim',
-            '',
-            'duneprototypes/Protodune/dualphase/CMakeLists.txt'
-            )
-        filter_file(
-            'find_package\\( (dunesim|duneopdet) REQUIRED EXPORT \\)',
-            '',
-            'CMakeLists.txt'
-            )
-        filter_file(
-                'duneopdet::OpticalDetector',
-                '',
-                'duneprototypes/Protodune/singlephase/NearlineMonitor/CMakeLists.txt',
-            )
-        filter_file(
-                '#include "duneopdet.*',
-                '',
-                'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
-            )
+    patch('artdaq-core-4.0.patch', when='^artdaq-core@v4:')
 
-        with when('^artdaq-core@v4_00_00:'):
-            for cmf in (
-                'CMakeLists.txt',
-                'duneprototypes/Coldbox/hd/CMakeLists.txt',
-                'duneprototypes/Coldbox/vd/CMakeLists.txt',
-                'duneprototypes/Iceberg/RawDecoding/CMakeLists.txt',
-                'duneprototypes/Protodune/dualphase/CMakeLists.txt',
-                'duneprototypes/Protodune/dualphase/Purity_module.cc',
-                'duneprototypes/Protodune/hd/RawDecoding/CMakeLists.txt',
-                'duneprototypes/Protodune/singlephase/NearlineMonitor/CMakeLists.txt',
-                'duneprototypes/Protodune/singlephase/NearlineMonitor/PlotOpticalDetails_module.cc',
-                'duneprototypes/Protodune/singlephase/PhotonDetectors/CMakeLists.txt',
-                'duneprototypes/Protodune/singlephase/RawDecoding/CMakeLists.txt',
-                'duneprototypes/Protodune/spsbsm/SPSFilter/CMakeLists.txt',
-                'duneprototypes/Protodune/spsbsm/SPSProducer/CMakeLists.txt',
-                'duneprototypes/Protodune/vd/RawDecoding/CMakeLists.txt'):
-                filter_file(
-                    'artdaq_core',
-                    'artdaq-core',
-                    cmf
-                    )
-                filter_file(
-                    'artdaq.core::artdaq.core_(Utilities|Data)',
-                    'artdaq-core::\\1',
-                    cmf
-                    )
+    # clean out vestigial dunesim, duneprototypes references
+    patch('v10_10_02d00.patch', when='@10_10_02d00') 
 
 
     depends_on("c", type="build")

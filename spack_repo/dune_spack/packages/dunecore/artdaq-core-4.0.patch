@@ -1,0 +1,33 @@
+--- dunecore-10_10_02d00/dunecore/RawDecoding/CMakeLists.txt	2025-08-29 18:02:15.000000000 -0500
++++ spack-src/dunecore/RawDecoding/CMakeLists.txt	2025-09-17 11:13:56.200922768 -0500
+@@ -8,8 +8,8 @@
+                         cetlib::cetlib
+                         cetlib_except::cetlib_except
+                         lardataobj::RawData
+-                        artdaq_core::artdaq-core_Data
+-                        artdaq_core::artdaq-core_Utilities
++                        artdaq-core::Data
++                        artdaq-core::Utilities
+                         dunecore::ChannelMap_FDHDChannelMapService_service
+ 			art::Framework_Core
+                         art::Framework_Principal
+--- dunecore-10_10_02d00/CMakeLists.txt	2025-08-29 18:02:15.000000000 -0500
++++ spack-src/CMakeLists.txt	2025-09-17 11:13:56.199922767 -0500
+@@ -49,7 +49,7 @@
+ 
+ # these are minimum required versions, not the actual product versions
+ find_package( Boost REQUIRED COMPONENTS system) # Needs to be first to cover for a missing transitive
+-                  # dependency from artdaq_core.
++                  # dependency from artdaq-core.
+ find_package( Geant4 REQUIRED )
+ find_package( ROOT REQUIRED )
+ 
+@@ -58,7 +58,7 @@
+ 
+ find_package( art 3.09.00 REQUIRED )
+ find_package( art_root_io REQUIRED )
+-find_package( artdaq_core REQUIRED )#v01_03_6 )
++find_package( artdaq-core REQUIRED )#v01_03_6 )
+ find_package( TRACE REQUIRED )
+ find_package( canvas REQUIRED )
+ find_package( canvas_root_io REQUIRED )
