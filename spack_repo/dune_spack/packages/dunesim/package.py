@@ -44,6 +44,7 @@ class Dunesim(CMakePackage, FnalGithubPackage):
 
     patch('v09_81_00d00.patch', when='@09_81_00d00')
     patch('v09_92_00d00.patch', when='@09_92_00d00')
+    patch('v10_10_02d00.pathc', when='@10_10_02d00')
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
@@ -62,6 +63,7 @@ class Dunesim(CMakePackage, FnalGithubPackage):
     depends_on("lardata")
     depends_on("clhep")
     depends_on("nugen")
+    depends_on("nufinder")
     depends_on("dk2nudata")
     depends_on("geant4")
     depends_on("genie-xsec")

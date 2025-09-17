@@ -1,0 +1,22 @@
+--- dunesim-10_10_02d00//dunesim/EventGenerator/ProtoDUNEbeamDataProducts/CMakeLists.txt        2025-08-29 18:02:37.000000000 -0500
++++ spack-src/dunesim/EventGenerator/ProtoDUNEbeamDataProducts/CMakeLists.txt   2025-09-17 14:09:33.545623532 -0500
+@@ -3,7 +3,7 @@
+ 
+ art_make(
+           MODULE_LIBRARIES dunesim_EventGenerator_ProtoDUNEbeamDataProducts
+-          LIB_LIBRARIES lardataobj::Simulation
++          LIB_LIBRARIES dk2nu::Tree lardataobj::Simulation
+           larcoreobj::headers
+           nusimdata::SimulationBase
+           art::Framework_Services_Registry
+--- dunesim-10_10_02d00//CMakeLists.txt 2025-08-29 18:02:37.000000000 -0500
++++ spack-src/CMakeLists.txt    2025-09-17 14:07:46.722925455 -0500
+@@ -44,6 +44,7 @@
+ find_package( CLHEP REQUIRED EXPORT )
+ find_package( nugen REQUIRED EXPORT )
+ find_package( Geant4 REQUIRED EXPORT )
++find_package( dk2nudata REQUIRED EXPORT)
+ 
+ # macros for artdaq_dictionary and simple_plugin
+ include(ArtDictionary)
+
