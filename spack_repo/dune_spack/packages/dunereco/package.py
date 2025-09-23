@@ -48,9 +48,9 @@ class Dunereco(CMakePackage, FnalGithubPackage):
     depends_on("cxx", type="build")
     depends_on("hep-hpc")
     #depends_on("python")
-    #depends_on("py-tensorflow")
-    #depends_on("triton")
-    #depends_on("protobuf")
+    depends_on("py-tensorflow")
+    depends_on("triton")
+    depends_on("protobuf")
     depends_on("larrecodnn")
     depends_on("dunecore")
     depends_on("larfinder")
@@ -66,20 +66,24 @@ class Dunereco(CMakePackage, FnalGithubPackage):
         ] 
         return args
 
-   # def setup_build_environment(self, spack_env):
-   #     spack_env.set("TRITON_DIR", str(self.spec["triton"].prefix.lib))
-   #     spack_env.set("TENSORFLOW_DIR", str(self.spec["py-tensorflow"].prefix.lib))
-   #     spack_env.set("PROTOBUF_DIR", str(self.spec["protobuf"].prefix.lib))
-   #     spack_env.set(
-   #         "TENSORFLOW_INC",
-   #         str(
-   #             join_path(
-   #                 self.spec["py-tensorflow"].prefix.lib,
-   #                 "python%s/site-packages/tensorflow/include"
-   #                 % self.spec["python"].version.up_to(2),
-   #             )
-   #         ),
-   #     )
+    def setup_build_environment(self, spack_env):
+        spack_env.set("TRITON_DIR", str(self.spec["triton"].prefix.lib))
+        spack_env.set("TENSORFLOW_DIR", str(join_path(
+                    self.spec["py-tensorflow"].prefix.lib),
+                    "python%s/site-packages/tensorflow/include"
+                    % self.spec["python"].version.up_to(2),
+                ))
+        spack_env.set("PROTOBUF_DIR", str(self.spec["protobuf"].prefix.lib))
+        spack_env.set(
+            "TENSORFLOW_INC",
+            str(
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib,
+                    "python%s/site-packages/tensorflow/include"
+                    % self.spec["python"].version.up_to(2),
+                )
+            ),
+        )
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
