@@ -100,7 +100,7 @@ class Dunecore(CMakePackage, FnalGithubPackage):
     depends_on("nurandom")
     depends_on("nusimdata")
     depends_on("nutools")
-    depends_on("pandora")
+    depends_on("pandorasdk")
     depends_on("postgresql")
     depends_on("root")
     depends_on("sqlite")
