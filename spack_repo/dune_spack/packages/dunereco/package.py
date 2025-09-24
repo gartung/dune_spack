@@ -59,8 +59,8 @@ class Dunereco(CMakePackage, FnalGithubPackage):
     depends_on("cmake", type="build")
 
     def patch(self):
-        filter_file("find_package\(Eigen3 REQUIRED\)",
-                'list(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so.2")\nfind_package(TensorFlow REQUIRED EXPORT)\nfind_package(Eigen3 REQUIRED)',
+        filter_file("find_package\( Eigen3 REQUIRED \)",
+                'list(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so.2")\nfind_package(TensorFlow REQUIRED EXPORT)\nfind_package( Eigen3 REQUIRED )',
                 "CMakeLists.txt"
                 )
         filter_file('#include "tensorflow/cc/saved_model/tag_constants.h"',
