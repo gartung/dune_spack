@@ -63,6 +63,14 @@ class Dunereco(CMakePackage, FnalGithubPackage):
                 'list(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so.2")\nfind_package(TensorFlow REQUIRED EXPORT)\nfind_package(Eigen3 REQUIRED)',
                 "CMakeLists.txt"
                 )
+        filter_file('#include "tensorflow/cc/saved_model/tag_constants.h"',
+                    '#include "tensorflow/cc/saved_model/bundle_v2.h"\n#include "tensorflow/cc/saved_model/constants.h"\n#include "tensorflow/cc/saved_model/loader.h"',
+                    "dunereco/CVN/tf/tf_bundle.cc",
+                    )
+        filter_file("{tensorflow::kSavedModelTagServe},",
+                    "{},",
+                    "dunereco/CVN/tf/tf_bundle.cc",
+                    )
     def cmake_args(self):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
