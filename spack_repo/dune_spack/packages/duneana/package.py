@@ -65,7 +65,7 @@ class Duneana(CMakePackage, FnalGithubPackage):
     depends_on("dunereco")
     depends_on("nufinder")
     depends_on("larfinder")
-    #depends_on("py-tensorflow")
+    depends_on("py-tensorflow")
     #depends_on("python")
     depends_on("systematicstools")
     depends_on("cetmodules", type="build")
@@ -81,18 +81,22 @@ class Duneana(CMakePackage, FnalGithubPackage):
         ] 
         return args
 
-    #def setup_build_environment(self, spack_env):
-    #    spack_env.set("TENSORFLOW_DIR", str(self.spec["py-tensorflow"].prefix.lib))
-    #    spack_env.set(
-    #        "TENSORFLOW_INC",
-    #        str(
-    #            join_path(
-    #                self.spec["py-tensorflow"].prefix.lib,
-    #                "python%s/site-packages/tensorflow/include"
-    #                % self.spec["python"].version.up_to(2),
-    #            )
-    #        ),
-    #    )
+    def setup_build_environment(self, spack_env):
+        spack_env.set("TENSORFLOW_DIR",
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib,
+                    "python%s/site-packages/tensorflow"
+                    % self.spec["python"].version.up_to(2),
+                )
+        )
+        spack_env.set(
+            "TENSORFLOW_INC",
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib,
+                    "python%s/site-packages/tensorflow/include"
+                    % self.spec["python"].version.up_to(2),
+                )
+        )
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
