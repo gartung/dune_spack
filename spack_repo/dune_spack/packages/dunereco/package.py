@@ -59,8 +59,8 @@ class Dunereco(CMakePackage, FnalGithubPackage):
     depends_on("cmake", type="build")
 
     def patch(self):
-        filter_file("find_package\(TensorFlow EXPORT QUIET\)",
-                'list(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so.2")\nfind_package(TensorFlow REQUIRED EXPORT)',
+        filter_file("find_package\(Eigen3 REQUIRED\)",
+                'list(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so.2")\nfind_package(TensorFlow REQUIRED EXPORT)\nfind_package(Eigen3 REQUIRED)',
                 "CMakeLists.txt"
                 )
     def cmake_args(self):
