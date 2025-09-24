@@ -58,6 +58,11 @@ class Dunereco(CMakePackage, FnalGithubPackage):
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
 
+    def patch(self):
+        filter_file("find_package\(TensorFlow 2.6.0 QUIET EXPORT\)",
+                'list(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so.2")\nfind_package(TensorFlow 2.6.0 REQUIRED EXPORT)',
+                "CMakeLists.txt"
+                )
     def cmake_args(self):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
