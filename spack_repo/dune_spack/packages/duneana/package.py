@@ -60,9 +60,9 @@ class Duneana(CMakePackage, FnalGithubPackage):
                  )
         filter_file(
                 r"find_package\( larfinder REQUIRED \)",
-                "find_package( larfinder REQUIRED )\nset(CMAKE_FIND_LIBRARY_SUFFIXES ".so", ".so.2")\nfind_package(TensorFlow REQUIRED)",
+                'find_package( larfinder REQUIRED )\nset(CMAKE_FIND_LIBRARY_SUFFIXES ".so", ".so.2")\nfind_package(TensorFlow REQUIRED)',
                 "CMakeLists.txt"
-                )`
+                )
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
