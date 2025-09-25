@@ -37,10 +37,12 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
         description="Use the specified C++ standard when building.",
     )
 
+    patch('main-spack.patch', when="@03_10_00")
     patch('v03_06_01.patch', when="@03_06_01")
     patch('v09_81_00d00.patch', when="@03_03_00")
     patch('v09_93_00d00.patch', when="@03_06_00")
     patch('main-spack.patch', when="@develop")
+
     def patch(self):
         filter_file('^cet_cmake_config','#cet_cmake_config', 'CMakeLists.txt')
 
@@ -66,6 +68,7 @@ class Duneanaobj(CMakePackage, FnalGithubPackage):
         spack_env.set("ROOT_INC", "%s" % self.spec["root"].prefix.include)
         spack_env.set("DUNEANAOBJ_DIR", "%s" % os.path.realpath(self.stage.source_path))
         spack_env.set("SRPROXY_INC", "%s" % os.path.realpath(self.build_directory))
+        spack_env.set("UPS_DIR", "%s" % os.path.realpath(self.stage.source_path))
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
