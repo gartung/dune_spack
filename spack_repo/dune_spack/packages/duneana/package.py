@@ -10,7 +10,7 @@ from spack.package import *
 class Duneana(CMakePackage):
     """Duneana"""
 
-    git = f"https://github.com/DUNE/duneana"
+    git = "https://github.com/DUNE/duneana"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
     version("10.10.02d00", sha256="a467832e5e93c0b855e8eb5bc49b06eba0a7d30fa3e92a3a76047d6d91d00e92")

@@ -5,39 +5,37 @@
 
 from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
-from spack_repo.fnal_art.packages.fnal_github_package.package import *
 
 
-class Dunesw(CMakePackage, FnalGithubPackage):
+class Dunesw(CMakePackage):
     """Dunesw"""
 
-    repo = "DUNE/dunesw"
-    git = "https://github.com/%s" % repo
-    version_patterns = ["v09_00_00d00", "09.14.19"]
+    git = "https://github.com/DUNE/dunesw"
+    url = f"{git}/archive/v09_81_00d00.tar.gz"
 
-    version("10_10_02d00", sha256="9189a294b331b6046bbf6dd1b5e9885c7b789f5725fbc3cec555597f3307516c")
-    version("10_10_00d00", sha256="d06f45c220cc5bd68caadbc3066b7c05c760519ac94cd9b66c1d6758c8b62da3")
-    version("10_09_00d00", sha256="ac08d28083ec2611542c542748e6c189fe5e376a00de7ac9d81254e421274fe8")
-    version("10_08_02d00", sha256="d617560b80eadff1bac4e0b17a7ada47f187062341de83f6293e94126816f3dd")
-    version("10_08_01d00", sha256="200315053559d1467d58b9e753de0054ed8ae1f11007b7037eaf9c7c82c5d834")
-    version("10_08_00d00", sha256="a756730d682bb05ac888d2cdc27f2af743cbe41ae5152c7682f90e24f071a59c")
-    version("10_07_00d00", sha256="5328cb0c2fb93c2967fd0d276c6a454348b07a11c261716876cca2f8d00dab74")
-    version("10_06_00d01", sha256="da36c4db529f33edb1f038d055b6701943065246119f67aa0f6a51e0ff32acd3")
-    version("10_06_00d00", sha256="0d1ce7bb39c2bf91574b116c75732b855bc44e8755bb1c8d0975215255871249")
-    version("10_05_00d00", sha256="305594eefa4ee3c12e4600911913632738d6ed13d263f097031859cb0d8313d7")
-    version("10_04_07d01", sha256="a52c44a29da140159498e45144f6ff7eb76e01a72e059a12b0533bd7ee26b46b")
-    version("10_04_07d00", sha256="fcd5b54e748f0a8114a495ff4833fc370ed347c1e8582a7b78e84630d1846c5f")
-    version("10_04_06d00", sha256="0e14f88e3d3146c23cee3d092c2403d0aeae930fc57f0a9561f70ed3bd45676b")
-    version("10_00_03d00", sha256="dbfc1dfa606a0c44152b39ae9f4efc5084436984dcbe00370da354c9f44fb966")
-    version("09_92_00d00", sha256="0e3bae89b9e01f3b29303d5b65a72c5122c906e7f54c92ed9f282e13641d12c0")
-    version("09_91_04d01", sha256="a2e64abc0527c91bd66c1854507a95659b81cfc322713e96319e4cf0e0e748c3")
-    version("09_89_01d01", sha256="d516d3f7c00ed99fe23de77152bad556b5a6a24e777e3e5ec7d7a4beddaff3cb")
-    version("09_81_00d01", sha256="126477cb91b6fd7a69ef2753505ca8dcd5739f4f509409cbf6f93f0774574862")
-    version("09_81_00d00", sha256="f32da1e3e3ac4482674dcd3559c23a8acd10bc994e95df37ac22778e63fd72cd")
+    version("10.10.02d00", sha256="9189a294b331b6046bbf6dd1b5e9885c7b789f5725fbc3cec555597f3307516c")
+    version("10.10.00d00", sha256="d06f45c220cc5bd68caadbc3066b7c05c760519ac94cd9b66c1d6758c8b62da3")
+    version("10.09.00d00", sha256="ac08d28083ec2611542c542748e6c189fe5e376a00de7ac9d81254e421274fe8")
+    version("10.08.02d00", sha256="d617560b80eadff1bac4e0b17a7ada47f187062341de83f6293e94126816f3dd")
+    version("10.08.01d00", sha256="200315053559d1467d58b9e753de0054ed8ae1f11007b7037eaf9c7c82c5d834")
+    version("10.08.00d00", sha256="a756730d682bb05ac888d2cdc27f2af743cbe41ae5152c7682f90e24f071a59c")
+    version("10.07.00d00", sha256="5328cb0c2fb93c2967fd0d276c6a454348b07a11c261716876cca2f8d00dab74")
+    version("10.06.00d01", sha256="da36c4db529f33edb1f038d055b6701943065246119f67aa0f6a51e0ff32acd3")
+    version("10.06.00d00", sha256="0d1ce7bb39c2bf91574b116c75732b855bc44e8755bb1c8d0975215255871249")
+    version("10.05.00d00", sha256="305594eefa4ee3c12e4600911913632738d6ed13d263f097031859cb0d8313d7")
+    version("10.04.07d01", sha256="a52c44a29da140159498e45144f6ff7eb76e01a72e059a12b0533bd7ee26b46b")
+    version("10.04.07d00", sha256="fcd5b54e748f0a8114a495ff4833fc370ed347c1e8582a7b78e84630d1846c5f")
+    version("10.04.06d00", sha256="0e14f88e3d3146c23cee3d092c2403d0aeae930fc57f0a9561f70ed3bd45676b")
+    version("10.00.03d00", sha256="dbfc1dfa606a0c44152b39ae9f4efc5084436984dcbe00370da354c9f44fb966")
+    version("09.92.00d00", sha256="0e3bae89b9e01f3b29303d5b65a72c5122c906e7f54c92ed9f282e13641d12c0")
+    version("09.91.04d01", sha256="a2e64abc0527c91bd66c1854507a95659b81cfc322713e96319e4cf0e0e748c3")
+    version("09.89.01d01", sha256="d516d3f7c00ed99fe23de77152bad556b5a6a24e777e3e5ec7d7a4beddaff3cb")
+    version("09.81.00d01", sha256="126477cb91b6fd7a69ef2753505ca8dcd5739f4f509409cbf6f93f0774574862")
+    version("09.81.00d00", sha256="f32da1e3e3ac4482674dcd3559c23a8acd10bc994e95df37ac22778e63fd72cd")
     version("develop", branch="develop")
 
-    def _url_for_tag(self, version_str):
-        return f"{self.git}/archive/refs/tags/v{version_str}.tar.gz"
+    def url_for_version(self, version):
+        return f"{self.git}/archive/v{version.underscored}.tar.gz"
 
     variant(
         "cxxstd",
@@ -47,7 +45,7 @@ class Dunesw(CMakePackage, FnalGithubPackage):
         description="Use the specified C++ standard when building.",
     )
 
-    patch('v09_81_00d00.patch', when='@09_81_00d00')
+    patch('v09_81_00d00.patch', when='@09.81.00d00')
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

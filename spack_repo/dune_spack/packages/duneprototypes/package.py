@@ -5,34 +5,32 @@
 
 from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
-from spack_repo.fnal_art.packages.fnal_github_package.package import *
 
 
-class Duneprototypes(CMakePackage, FnalGithubPackage):
+class Duneprototypes(CMakePackage):
     """Duneprototypes"""
 
-    repo = "DUNE/duneprototypes"
-    git = "https://github.com/%s" % repo
-    version_patterns = ["v09_00_00d00", "09.14.19"]
+    git = "https://github.com/DUNE/duneprototypes"
+    url = f"{git}/archive/v09_81_00d00.tar.gz"
 
-    version("10_10_02d00", sha256="51da2c142dbce1fc722fbab763a351f55ed261b046af3c512f51fc05f329c305")
-    version("10_10_00d00", sha256="cc516a47bce46c93b2cd7a0a2335e3d249f6603551f92d8497959bb22e976fdb")
-    version("10_09_00d00", sha256="5acd267eab98f36dafefa1d8dad928145932b878d86df5de532f13ab6806550d")
-    version("10_08_01d00", sha256="53269c0e244d86e8a2c222ef06b4bcf4aa2ccc2b31c3ada24d70e9a05d020c06")
-    version("10_08_00d00", sha256="fc74e2fd11a7d92806746af4f8e79bda19fe7194f386569a6af38d9ebc78575e")
-    version("10_07_00d00", sha256="95cd3551ce003510baa5ef9495ff3d7aab21aa63f6d834347ed638e14c6436fe")
-    version("10_06_00d01", sha256="6a4408db6dbcbc3cec48c9f383f6b83b55a3c47b09be4c15c83c66aff20b7d28")
-    version("10_06_00d00", sha256="25d2db6be55b1d39214c3d9ca781d0982e67e4c053b6394f8c41ad5b40dad483")
-    version("10_08_02d00", sha256="650e67104dba0a42d283c3afac2d509adab821762cc2d9a41fa4a584e6272632")
-    version("10_00_03d00", sha256="c3ed09c70ce39df44edc506680b7eb1eac7b562a05e7d703284a915525af0e49")
-    version("09_92_00d00", sha256="536429aa8cfb94f54cd790609128fef311a8ef9b92449e4c79a2e4459891f272")
-    version("09_91_04d01", sha256="7c423246df1e518d63270e6da9f3f437f1aa2be4756f6794b24cea1a4060e66d")
-    version("09_89_01d01", sha256="140a6a20b2ddabd70572172d57c348ea618d6b0a1bfe0ade29c767842e540fe2")
-    version("09_81_00d00", sha256="99a3e4eb98bfb9c7e7adeb3eb295332b71008c5bf6749587413ec97688532c85")
+    version("10.10.02d00", sha256="51da2c142dbce1fc722fbab763a351f55ed261b046af3c512f51fc05f329c305")
+    version("10.10.00d00", sha256="cc516a47bce46c93b2cd7a0a2335e3d249f6603551f92d8497959bb22e976fdb")
+    version("10.09.00d00", sha256="5acd267eab98f36dafefa1d8dad928145932b878d86df5de532f13ab6806550d")
+    version("10.08.01d00", sha256="53269c0e244d86e8a2c222ef06b4bcf4aa2ccc2b31c3ada24d70e9a05d020c06")
+    version("10.08.00d00", sha256="fc74e2fd11a7d92806746af4f8e79bda19fe7194f386569a6af38d9ebc78575e")
+    version("10.07.00d00", sha256="95cd3551ce003510baa5ef9495ff3d7aab21aa63f6d834347ed638e14c6436fe")
+    version("10.06.00d01", sha256="6a4408db6dbcbc3cec48c9f383f6b83b55a3c47b09be4c15c83c66aff20b7d28")
+    version("10.06.00d00", sha256="25d2db6be55b1d39214c3d9ca781d0982e67e4c053b6394f8c41ad5b40dad483")
+    version("10.08.02d00", sha256="650e67104dba0a42d283c3afac2d509adab821762cc2d9a41fa4a584e6272632")
+    version("10.00.03d00", sha256="c3ed09c70ce39df44edc506680b7eb1eac7b562a05e7d703284a915525af0e49")
+    version("09.92.00d00", sha256="536429aa8cfb94f54cd790609128fef311a8ef9b92449e4c79a2e4459891f272")
+    version("09.91.04d01", sha256="7c423246df1e518d63270e6da9f3f437f1aa2be4756f6794b24cea1a4060e66d")
+    version("09.89.01d01", sha256="140a6a20b2ddabd70572172d57c348ea618d6b0a1bfe0ade29c767842e540fe2")
+    version("09.81.00d00", sha256="99a3e4eb98bfb9c7e7adeb3eb295332b71008c5bf6749587413ec97688532c85")
     version("develop", branch="develop", get_full_repo=True)
 
-    def _url_for_tag(self, version_str):
-        return f"{self.git}/archive/refs/tags/v{version_str}.tar.gz"
+    def url_for_version(self, version):
+        return f"{self.git}/archive/v{version.underscored}.tar.gz"
 
     variant(
         "cxxstd",
@@ -42,12 +40,12 @@ class Duneprototypes(CMakePackage, FnalGithubPackage):
         description="Use the specified C++ standard when building.",
     )
 
-    patch('v09_81_00d00.patch', when='@09_81_00d00')
+    patch('v09_81_00d00.patch', when='@09.81.00d00')
 
     patch('artdaq-core-4.0.patch', when='^artdaq-core@v4:')
 
     # clean out vestigial dunesim, duneprototypes references
-    patch('v10_10_02d00.patch', when='@10_10_02d00') 
+    patch('v10_10_02d00.patch', when='@10.10.02d00') 
 
 
     depends_on("c", type="build")

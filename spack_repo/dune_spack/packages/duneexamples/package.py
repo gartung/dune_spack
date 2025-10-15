@@ -5,34 +5,32 @@
 
 from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
-from spack_repo.fnal_art.packages.fnal_github_package.package import *
 
 
-class Duneexamples(CMakePackage, FnalGithubPackage):
+class Duneexamples(CMakePackage):
     """Duneexamples"""
 
-    repo = "DUNE/duneexamples"
-    git = "https://github.com/%s" % repo
-    version_patterns = ["v09_00_00d00", "09.14.19"]
+    git = "https://github.com/DUNE/duneexamples"
+    url = f"{git}/archive/v09_81_00d00.tar.gz"
 
-    version("10_10_02d00", sha256="194b6e89a0bd3727d0a23f4ba54c87d9b4f02a6417131e3101ff809f848ba0de")
-    version("10_10_00d00", sha256="fa2bdbb0715e83dc4a34646d4a39821552bd002ee2796e8849403d2b9703a21a")
-    version("10_09_00d00", sha256="c3ff5ac8ad4e700fce9d45994077400dcb58076075a1c4ff8a04eb6eadf808e1")
-    version("10_08_01d00", sha256="5837a9c0b46d88c10afd7fca6e578be8bddfe56d9ccb76100d87857e83a558a9")
-    version("10_08_00d00", sha256="49c8f7db8faff3ac7a4a979d0127617089cb08dfa0153c5651aaa871cfdd056c")
-    version("10_07_00d00", sha256="3190ab9cf85295059d9edc9b3aad80faab5b3be1d9724582985a183324b2a618")
-    version("10_06_00d01", sha256="bd93cfb28a7e4bbf0dee1eb1e4b43953a89d57f6d5d285ed066bc3eafb9a2e3b")
-    version("10_06_00d00", sha256="10671834502443b9b48e8c712457e8c5bcbf0ad4cccca8ec1ff79231b0a9614f")
-    version("10_08_02d00", sha256="4a307d556c7b5d70a2a3f171c6b744405ef0134190cdcd9578c0fb35b1ee6c65")
-    version("10_00_03d00", sha256="3e91fbcd0fbd6cae65f7f3e29784cfcf2ebeaeb3d5a2195964d432f9b5f7233e")
-    version("09_92_00d00", sha256="e251ec860ae0c401cecc6c4ac985b203b625a8c1675d46a7a06309d7461598c4")
-    version("09_91_04d01", sha256="6542ef796de3909ebbd23900690d7c918dd848e3ef3fa61bc383adc286dc4d17")
-    version("09_89_01d01", sha256="fadad2d0d0f363bd9f52191ab0b6e0534f34b086098a16cafe9c93e5843cd99b")
-    version("09_81_00d00", sha256="5ca163fe371aee48601d4ee63da447f26901a610d3bb175070aac113f93a5779")
+    version("10.10.02d00", sha256="194b6e89a0bd3727d0a23f4ba54c87d9b4f02a6417131e3101ff809f848ba0de")
+    version("10.10.00d00", sha256="fa2bdbb0715e83dc4a34646d4a39821552bd002ee2796e8849403d2b9703a21a")
+    version("10.09.00d00", sha256="c3ff5ac8ad4e700fce9d45994077400dcb58076075a1c4ff8a04eb6eadf808e1")
+    version("10.08.01d00", sha256="5837a9c0b46d88c10afd7fca6e578be8bddfe56d9ccb76100d87857e83a558a9")
+    version("10.08.00d00", sha256="49c8f7db8faff3ac7a4a979d0127617089cb08dfa0153c5651aaa871cfdd056c")
+    version("10.07.00d00", sha256="3190ab9cf85295059d9edc9b3aad80faab5b3be1d9724582985a183324b2a618")
+    version("10.06.00d01", sha256="bd93cfb28a7e4bbf0dee1eb1e4b43953a89d57f6d5d285ed066bc3eafb9a2e3b")
+    version("10.06.00d00", sha256="10671834502443b9b48e8c712457e8c5bcbf0ad4cccca8ec1ff79231b0a9614f")
+    version("10.08.02d00", sha256="4a307d556c7b5d70a2a3f171c6b744405ef0134190cdcd9578c0fb35b1ee6c65")
+    version("10.00.03d00", sha256="3e91fbcd0fbd6cae65f7f3e29784cfcf2ebeaeb3d5a2195964d432f9b5f7233e")
+    version("09.92.00d00", sha256="e251ec860ae0c401cecc6c4ac985b203b625a8c1675d46a7a06309d7461598c4")
+    version("09.91.04d01", sha256="6542ef796de3909ebbd23900690d7c918dd848e3ef3fa61bc383adc286dc4d17")
+    version("09.89.01d01", sha256="fadad2d0d0f363bd9f52191ab0b6e0534f34b086098a16cafe9c93e5843cd99b")
+    version("09.81.00d00", sha256="5ca163fe371aee48601d4ee63da447f26901a610d3bb175070aac113f93a5779")
     version("develop", branch="develop", get_full_repo=True)
 
-    def _url_for_tag(self, version_str):
-        return f"{self.git}/archive/refs/tags/v{version_str}.tar.gz"
+    def url_for_version(self, version):
+        return f"{self.git}/archive/v{version.underscored}.tar.gz"
 
     variant(
         "cxxstd",
@@ -42,7 +40,7 @@ class Duneexamples(CMakePackage, FnalGithubPackage):
         description="Use the specified C++ standard when building.",
     )
 
-    patch('v09_81_00d00.patch', when='@09_81_00d00')
+    patch('v09_81_00d00.patch', when='@09.81.00d00')
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
