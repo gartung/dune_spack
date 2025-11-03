@@ -71,6 +71,10 @@ class DuneReco(CMakePackage):
                     "{},",
                     "dunereco/CVN/tf/tf_bundle.cc",
                     )
+        filter_file('find_ups_product\(dunepdlegacy\)',
+                'find_package(dunepdlegacy REQUIRED)\nfind_package(artdaq_core REQUIRED)',
+                "CMakeLists.txt"
+                )
     def cmake_args(self):
         args = [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
