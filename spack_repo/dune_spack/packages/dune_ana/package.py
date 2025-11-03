@@ -64,7 +64,7 @@ class DuneAna(CMakePackage):
                 )
         filter_file(
                 r"dunereco::CVN_func",
-                "dunereco::CVN_func dunereco::RegCNNFunc",
+                "dunereco::CVN_func dunereco::RegCNNFunc duneanaobj_StandardRecord duneanaobj_StandardRecordFlat",
                 "duneana/CAFMaker/CMakeLists.txt"
                 )
 
