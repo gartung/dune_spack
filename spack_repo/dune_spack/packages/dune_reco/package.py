@@ -87,7 +87,7 @@ class DuneReco(CMakePackage):
                     % self.spec["python"].version.up_to(2),
                 )
             )
-        spack_env.set("TORCH_DIR", join_path(
+        spack_env.set("LIBTORCH_DIR", join_path(
                     self.spec["py-torch"].prefix.lib,
                     "python%s/site-packages/torch"
                     % self.spec["python"].version.up_to(2),
