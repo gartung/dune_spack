@@ -13,6 +13,7 @@ class DuneAnaObj(CMakePackage):
     git = "https://github.com/DUNE/duneanaobj"
     url = f"{git}/archive/v03_03_00.tar.gz"
 
+    version("03.11.00", sha256="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855")
     version("03.10.00", sha256="35f025b77b3f5c6cc4666d1bbd04b2ff8f837a51670bbe5c0d80a7e3145164d8")
     version("03.09.00", sha256="c1bc56a25d8280349292363e74b3d3f32424f54daa5b0554a8fd94b72438750f")
     version("03.08.00", sha256="89581845fc12a156e0541e2d3eef866efc631794f03f255731367023b5fd50eb")

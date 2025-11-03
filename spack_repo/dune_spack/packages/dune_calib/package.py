@@ -13,6 +13,7 @@ class DuneCalib(CMakePackage):
     git = "https://github.com/DUNE/dunecalib"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
+    version("10.11.01d00", sha256="3ccab8db8c8a61fe199b19d3c5564590a3cdae6c3e06ef860d60e4328036ba96")
     version("10.10.02d00", sha256="19b8848adf351f8874727a8ba5756d8c96e32b622fcf97d546ed668a930183d6")
     version("10.10.00d00", sha256="adf709d4b54534adbd7a236e8c5c43657a06ee338425ae307a58d128ffc50b35")
     version("10.09.00d00", sha256="8a19779a089ca41de8cc6498ce37153dbeaf2af411b91026f2ae3255fbea10ad")

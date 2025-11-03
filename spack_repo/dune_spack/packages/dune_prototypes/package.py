@@ -13,6 +13,7 @@ class DunePrototypes(CMakePackage):
     git = "https://github.com/DUNE/duneprototypes"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
+    version("10.11.01d00", sha256="48092deb82a301620004b04738ab61d4540ce55237c9f15e4968f931c6f841a8")
     version("10.10.02d00", sha256="51da2c142dbce1fc722fbab763a351f55ed261b046af3c512f51fc05f329c305")
     version("10.10.00d00", sha256="cc516a47bce46c93b2cd7a0a2335e3d249f6603551f92d8497959bb22e976fdb")
     version("10.09.00d00", sha256="5acd267eab98f36dafefa1d8dad928145932b878d86df5de532f13ab6806550d")
