@@ -47,6 +47,7 @@ class DunePrototypes(CMakePackage):
 
     # clean out vestigial dunesim, duneprototypes references
     patch('v10_10_02d00.patch', when='@10.10.02d00') 
+    patch('v10_11_01d00.patch', when='@10.11.01d00') 
 
 
     depends_on("c", type="build")
