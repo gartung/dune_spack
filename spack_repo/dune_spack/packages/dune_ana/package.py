@@ -62,11 +62,6 @@ class DuneAna(CMakePackage):
                 'find_package( larfinder REQUIRED )\nset(CMAKE_FIND_LIBRARY_SUFFIXES ".so", ".so.2")\nfind_package(TensorFlow REQUIRED)',
                 "CMakeLists.txt"
                 )
-        filter_file(
-                r"dunereco::CVN_func",
-                "dunereco::CVN_func dunereco::RegCNN",
-                "duneana/CAFMaker/CMakeLists.txt"
-                )
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
