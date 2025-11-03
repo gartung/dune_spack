@@ -48,6 +48,7 @@ class DuneReco(CMakePackage):
     depends_on("hep-hpc")
     #depends_on("python")
     depends_on("py-tensorflow")
+    depends_on("py-torch")
     depends_on("triton")
     depends_on("protobuf")
     depends_on("larrecodnn")
@@ -83,6 +84,12 @@ class DuneReco(CMakePackage):
         spack_env.set("TENSORFLOW_DIR", join_path(
                     self.spec["py-tensorflow"].prefix.lib,
                     "python%s/site-packages/tensorflow"
+                    % self.spec["python"].version.up_to(2),
+                )
+            )
+        spack_env.set("TORCH_DIR", join_path(
+                    self.spec["py-torch"].prefix.lib,
+                    "python%s/site-packages/torch"
                     % self.spec["python"].version.up_to(2),
                 )
             )
