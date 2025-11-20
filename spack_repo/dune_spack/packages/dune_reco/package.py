@@ -49,7 +49,7 @@ class DuneReco(CMakePackage):
     #depends_on("python")
     depends_on("py-tensorflow")
     depends_on("py-torch")
-    depends_on("py-triton")
+    depends_on("triton")
     depends_on("protobuf")
     depends_on("larrecodnn")
     depends_on("dune-core")
@@ -84,7 +84,7 @@ class DuneReco(CMakePackage):
         return args
 
     def setup_build_environment(self, spack_env):
-        spack_env.set("TRITON_DIR", self.spec["py-triton"].prefix.lib)
+        spack_env.set("TRITON_DIR", self.spec["triton"].prefix.lib)
         spack_env.set("TENSORFLOW_DIR", join_path(
                     self.spec["py-tensorflow"].prefix.lib,
                     "python%s/site-packages/tensorflow"
