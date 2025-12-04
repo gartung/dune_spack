@@ -41,6 +41,12 @@ class ProtoduneAna(CMakePackage):
         description="Use the specified C++ standard when building.",
     )
 
+    def patch(self):
+        filter_file("find_package\( nufinder REQUIRED \)",
+                    "find_package(protobuf REQUIRED)\nfind_package(nufinfer REQUIRED)",
+                    "CMakeLists.txt"
+                    )
+
     patch('v09_81_00d00.patch', when='@09.81.00d00')
     patch('artdaq-core-v4.0.patch', when='^artdaq-core@v4:')
 
