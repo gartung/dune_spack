@@ -46,7 +46,7 @@ class ProtoduneAna(CMakePackage):
 
     def patch(self):
         filter_file("find_package\( nufinder REQUIRED \)",
-                    "find_package(protobuf REQUIRED)\nfind_package(nufinfer REQUIRED)",
+                    "find_package(protobuf REQUIRED)\nfind_package(nufinder REQUIRED)",
                     "CMakeLists.txt"
                     )
 
