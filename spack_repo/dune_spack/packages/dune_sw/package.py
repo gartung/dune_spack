@@ -57,6 +57,7 @@ class DuneSw(CMakePackage):
     depends_on("nurandom")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
+    depends_on("justin", type="run")
 
     def cmake_args(self):
         args = [
