@@ -49,7 +49,7 @@ class DuneAnaObj(CMakePackage):
     depends_on("cxx", type="build")
     depends_on("root")
     depends_on("canvas-root-io")
-    depends_on("py-srproxy@00.43:", when="@03_03_00:")
+    depends_on("py-srproxy@00.43:")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
     depends_on("py-srproxy")
