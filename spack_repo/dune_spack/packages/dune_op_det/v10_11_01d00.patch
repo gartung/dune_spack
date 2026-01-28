@@ -1,0 +1,16 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ae0a3fc..d8680d2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -31,8 +31,9 @@ find_package( Boost REQUIRED )
+ find_package(ROOT REQUIRED)
+ find_package( larevt REQUIRED EXPORT )
+ find_package( larsim REQUIRED EXPORT )
+-find_package( eigen )
+-find_package( tensorflow )
++find_package( Eigen3 )
++find_package( larfinder REQUIRED )
++find_package( TensorFlow REQUIRED )
+ find_package( larsimdnn )
+ find_package( larcore REQUIRED EXPORT )
+ find_package( lardata REQUIRED EXPORT )
