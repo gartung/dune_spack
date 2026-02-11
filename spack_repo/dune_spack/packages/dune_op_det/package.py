@@ -61,6 +61,9 @@ class DuneOpDet(CMakePackage):
     depends_on("nlohmann-json")
     depends_on("larfinder")
     depends_on("py-tensorflow")
+    depends_on("protobuf")
+    depends_on("grpc")
+    depends_on("larsimdnn")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
 
