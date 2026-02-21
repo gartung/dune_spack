@@ -5,7 +5,7 @@
 
 from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
-
+import os
 
 class Protoduneana(CMakePackage):
     """Protoduneana"""
@@ -80,11 +80,63 @@ class Protoduneana(CMakePackage):
             tdir = "{0}/lib/python{1}/site-packages/tensorflow".format(
                     self.spec["py-tensorflow"].prefix, self.spec["python"].version.up_to(2)
                     )
+            if not os.path.exists(tdir):
+                tdir = "{0}/lib64/python{1}/site-packages/tensorflow".format(
+                    self.spec["py-tensorflow"].prefix, self.spec["python"].version.up_to(2)
+                    )
             args.append("-DTensorFlow_ROOT:FILEPATH={0}".format(tdir))
             args.append("-DTensorFlow_cc_LIBRARY:FILEPATH={0}/libtensorflow_cc.so.2".format(tdir))
             args.append("-DTensorFlow_framework_LIBRARY:FILEPATH={0}/libtensorflow_framework.so.2".format(tdir))
 
         return args
+
+    def setup_build_environment(self, spack_env):
+        spack_env.set("TRITON_DIR", self.spec["triton"].prefix.lib)
+        if os.path.exists(self.spec["py-torch"].prefix.lib64):
+            spack_env.set("LIBTORCH_DIR", join_path(
+                    self.spec["py-torch"].prefix.lib64,
+                    "python%s/site-packages/torch"
+                    % self.spec["python"].version.up_to(2),
+                )
+            )
+        else: 
+            spack_env.set("LIBTORCH_DIR", join_path(
+                    self.spec["py-torch"].prefix.lib,
+                    "python%s/site-packages/torch"
+                    % self.spec["python"].version.up_to(2),
+                )
+            )
+        spack_env.set("PROTOBUF_DIR", self.spec["protobuf"].prefix.lib)
+        if os.path.exists(self.spec["py-tensorflow"].prefix.lib64):
+            spack_env.set( "TENSORFLOW_INC",
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib64,
+                    "python%s/site-packages/tensorflow/include"
+                    % self.spec["python"].version.up_to(2),
+                )
+            )
+            spack_env.set("TENSORFLOW_DIR",
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib64,
+                    "python%s/site-packages/tensorflow"
+                    % self.spec["python"].version.up_to(2),
+                )
+            )
+        else:
+            spack_env.set("TENSORFLOW_DIR",
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib,
+                    "python%s/site-packages/tensorflow"
+                    % self.spec["python"].version.up_to(2),
+                )
+            )
+            spack_env.set( "TENSORFLOW_INC",
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib,
+                    "python%s/site-packages/tensorflow/include"
+                    % self.spec["python"].version.up_to(2),
+                )
+            )
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)

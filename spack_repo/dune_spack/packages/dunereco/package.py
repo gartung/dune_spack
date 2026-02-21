@@ -5,7 +5,7 @@
 
 from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
-
+import os
 
 class Dunereco(CMakePackage):
     """Dunereco"""
@@ -59,10 +59,6 @@ class Dunereco(CMakePackage):
     depends_on("cmake", type="build")
 
     def patch(self):
-        filter_file("find_package\( Eigen3 REQUIRED \)",
-                'list(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so.2")\nfind_package(TensorFlow REQUIRED EXPORT)\nfind_package( Eigen3 REQUIRED )',
-                "CMakeLists.txt"
-                )
         filter_file('#include "tensorflow/cc/saved_model/tag_constants.h"',
                     '#include "tensorflow/cc/saved_model/bundle_v2.h"\n#include "tensorflow/cc/saved_model/constants.h"\n#include "tensorflow/cc/saved_model/loader.h"',
                     "dunereco/CVN/tf/tf_bundle.cc",
@@ -71,6 +67,10 @@ class Dunereco(CMakePackage):
                     "{},",
                     "dunereco/CVN/tf/tf_bundle.cc",
                     )
+        filter_file('find_package\( Eigen3 REQUIRED \)',
+                'find_package(protobuf REQUIRED)\nfind_package( Eigen3 REQUIRED )',
+                "CMakeLists.txt"
+                )
         filter_file('find_ups_product\( dunepdlegacy \)',
                 'find_package(dunepdlegacy REQUIRED)\nfind_package(artdaq_core REQUIRED)',
                 "CMakeLists.txt"
@@ -85,27 +85,56 @@ class Dunereco(CMakePackage):
 
     def setup_build_environment(self, spack_env):
         spack_env.set("TRITON_DIR", self.spec["triton"].prefix.lib)
-        spack_env.set("TENSORFLOW_DIR", join_path(
-                    self.spec["py-tensorflow"].prefix.lib,
-                    "python%s/site-packages/tensorflow"
+        if os.path.exists(self.spec["py-torch"].prefix.lib64):
+            spack_env.set("LIBTORCH_DIR", join_path(
+                    self.spec["py-torch"].prefix.lib64,
+                    "python%s/site-packages/torch"
                     % self.spec["python"].version.up_to(2),
                 )
             )
-        spack_env.set("LIBTORCH_DIR", join_path(
+        else:
+            spack_env.set("LIBTORCH_DIR", join_path(
                     self.spec["py-torch"].prefix.lib,
                     "python%s/site-packages/torch"
                     % self.spec["python"].version.up_to(2),
                 )
             )
-        spack_env.set("PROTOBUF_DIR", self.spec["protobuf"].prefix.lib)
-        spack_env.set(
-            "TENSORFLOW_INC",
+        if os.path.exists(self.spec["protobuf"].prefix.lib64):
+            spack_env.set("PROTOBUF_DIR", self.spec["protobuf"].prefix.lib64)
+        else:
+            spack_env.set("PROTOBUF_DIR", self.spec["protobuf"].prefix.lib)
+        if os.path.exists(self.spec["py-tensorflow"].prefix.lib64):
+            spack_env.set("TENSORFLOW_DIR",
                 join_path(
-                    self.spec["py-tensorflow"].prefix.lib,
-                    "python%s/site-packages/tensorflow/include"
+                    self.spec["py-tensorflow"].prefix.lib64,
+                    "python%s/site-packages/tensorflow"
                     % self.spec["python"].version.up_to(2),
                 )
             )
+            spack_env.set(
+                "TENSORFLOW_INC",
+                    join_path(
+                        self.spec["py-tensorflow"].prefix.lib64,
+                        "python%s/site-packages/tensorflow/include"
+                        % self.spec["python"].version.up_to(2),
+                    )
+                )
+        else:
+            spack_env.set("TENSORFLOW_DIR",
+                join_path(
+                    self.spec["py-tensorflow"].prefix.lib,
+                    "python%s/site-packages/tensorflow"
+                    % self.spec["python"].version.up_to(2),
+                    )
+                )
+            spack_env.set(
+                "TENSORFLOW_INC",
+                    join_path(
+                        self.spec["py-tensorflow"].prefix.lib,
+                        "python%s/site-packages/tensorflow/include"
+                        % self.spec["python"].version.up_to(2),
+                    )
+                )
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
