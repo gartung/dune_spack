@@ -53,6 +53,7 @@ class Dunereco(CMakePackage):
     depends_on("protobuf")
     depends_on("larrecodnn")
     depends_on("dunecore")
+    depends_on("duneprototypes")
     depends_on("larfinder")
     depends_on("nufinder")
     depends_on("cetmodules", type="build")
