@@ -40,7 +40,7 @@ class Duneanaobj(CMakePackage):
     patch('v03_06_01.patch', when="@03.06.01")
     patch('v09_81_00d00.patch', when="@03.03.00")
     patch('v09_93_00d00.patch', when="@03.06.00")
-    patch('main-spack.patch', when="@develop")
+#    patch('main-spack.patch', when="@develop")
 
     def patch(self):
         filter_file('^cet_cmake_config','#cet_cmake_config', 'CMakeLists.txt')
