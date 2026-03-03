@@ -74,7 +74,7 @@ class Dunecore(CMakePackage):
     depends_on("gallery")
     depends_on("geant4")
     depends_on("genie")
-    depends_on("hdf5@1.12.2")
+    depends_on("hdf5@1.12:1.14")
     depends_on("hep-concurrency")
     depends_on("highfive@:3")
     depends_on("ifdh-art")
