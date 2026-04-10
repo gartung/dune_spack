@@ -12,6 +12,7 @@ class Dunedetdataformats(Package):
     git = "https://github.com/DUNE/dunedetdataformats"
     url = f"{git}/archive/v4_4_5.tar.gz"
 
+    version("4.4.6", sha256="2de636a659f4dadd48cf2381181b6ae4f8f7d3b184f9fd59dac20dfe0b3916b6")
     version("4.4.5", sha256="82e69cb0397d910f53664a8276766230489440f37001a4980520b13c7e23b4fc")
     version("4.4.4", sha256="ae4f18a4f3c09f503a0dca5373fb9b08ad04bfc4ead323605121ff3ec76a22df")
     version("4.4.0", sha256="1312f255869f6b021df8c9a7885925192e62094f46808d3b7f6bd99d6efc0a20")
