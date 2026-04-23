@@ -42,6 +42,8 @@ class Protoduneana(CMakePackage):
         description="Use the specified C++ standard when building.",
     )
 
+    patch("https://github.com/DUNE/protoduneana/commit/87d57aee0ff099783aa560b35e769256cac5d652.patch",
+          sha256="408f340af534805c67e693480f677c8e934024244fcf1c661bd534daebd6a605", when="@10.20.03d01")
     patch('v09_81_00d00.patch', when='@09.81.00d00')
     patch('artdaq-core-v4.0.patch', when='^artdaq-core@v4:')
 
