@@ -57,6 +57,8 @@ class Dunereco(CMakePackage):
     depends_on("larcv2")
     depends_on("dunecore")
     depends_on("duneprototypes")
+    depends_on("hdf5@1.12:1.13")
+    depends_on("highfive@:2.99")
     depends_on("larfinder")
     depends_on("nufinder")
     depends_on("cetmodules", type="build")
