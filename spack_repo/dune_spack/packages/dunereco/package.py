@@ -54,6 +54,7 @@ class Dunereco(CMakePackage):
     depends_on("triton")
     depends_on("protobuf")
     depends_on("larrecodnn")
+    depends_on("larcv")
     depends_on("dunecore")
     depends_on("duneprototypes")
     depends_on("larfinder")
@@ -63,7 +64,7 @@ class Dunereco(CMakePackage):
 
     def patch(self):
         filter_file('#include "tensorflow/cc/saved_model/tag_constants.h"',
-                    '#include "tensorflow/cc/saved_model/bundle_v2.h"\n#include "tensorflow/cc/saved_model/constants.h"\n#include "tensorflow/cc/saved_model/loader.h"',
+                    '#include "tensorflow/cc/saved_model/constants.h"\n#include "tensorflow/cc/saved_model/loader.h"',
                     "dunereco/CVN/tf/tf_bundle.cc",
                     )
         filter_file("{tensorflow::kSavedModelTagServe},",
