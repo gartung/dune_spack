@@ -54,7 +54,7 @@ class Dunereco(CMakePackage):
     depends_on("triton")
     depends_on("protobuf")
     depends_on("larrecodnn")
-    depends_on("larcv")
+    depends_on("larcv2")
     depends_on("dunecore")
     depends_on("duneprototypes")
     depends_on("larfinder")
