@@ -72,6 +72,7 @@ class Dunesim(CMakePackage):
     depends_on("nurandom")
     depends_on("nugen")
     depends_on("nufinder")
+    depends_on("root")
 
     def cmake_args(self):
         args = [
