@@ -43,7 +43,7 @@ class Dunereco(CMakePackage):
         description="Use the specified C++ standard when building.",
     )
 
-    patch("v10_20_03d01.patch", when="@10.20.03d01")
+    patch("supera.patch", when="@10.20:")
     patch('v09_81_00d00.patch', when='@09.81.00d00')
 
     depends_on("c", type="build")
