@@ -14,7 +14,7 @@ index 0e9e082..eb71b40 100644
 +               SOURCE reformat_g4bl.c++
 +               LIBRARIES
 +                 ROOT::RIO
-+                 ROOT::TTree
++                 ROOT::Tree
 +                 dunecore_DuneObj
 +)
 +
