@@ -46,6 +46,7 @@ class Dunesim(CMakePackage):
     patch('v09_81_00d00.patch', when='@09.81.00d00')
     patch('v09_92_00d00.patch', when='@09.92.00d00')
     patch('v10_10_02d00.patch', when='@10.10.02d00')
+    patch("10.20.09d02.patch", when="@10.20.09d02")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
@@ -72,7 +73,6 @@ class Dunesim(CMakePackage):
     depends_on("nurandom")
     depends_on("nugen")
     depends_on("nufinder")
-    depends_on("root")
 
     def cmake_args(self):
         args = [

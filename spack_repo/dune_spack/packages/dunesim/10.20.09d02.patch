@@ -1,0 +1,23 @@
+diff --git a/dunesim/EventGenerator/Utils/CMakeLists.txt b/dunesim/EventGenerator/Utils/CMakeLists.txt
+index 0e9e082..eb71b40 100644
+--- a/dunesim/EventGenerator/Utils/CMakeLists.txt
++++ b/dunesim/EventGenerator/Utils/CMakeLists.txt
+@@ -14,11 +14,13 @@ cet_make_exec( NAME runEventCounter
+ 	       LIBRARIES ProtoDUNETriggeredBeamUtils 
+ 	    )
+ cet_make_exec( NAME reformat_g4bl
+-	       SOURCE reformat_g4bl.c++
+-	       LIBRARIES
+-            ${ROOT_LIBRARIES}
+-            dunecore_DuneObj
+-	    )
++               SOURCE reformat_g4bl.c++
++               LIBRARIES
++                 ROOT::RIO
++                 ROOT::TTree
++                 dunecore_DuneObj
++)
++
+ simple_plugin(H4BeamInput "source"
+   art::Framework_Services_Registry
+   dunesim::EventGenerator_Utils_H4BeamFileService_service
