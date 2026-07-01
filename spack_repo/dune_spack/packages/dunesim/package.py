@@ -46,7 +46,8 @@ class Dunesim(CMakePackage):
     patch('v09_81_00d00.patch', when='@09.81.00d00')
     patch('v09_92_00d00.patch', when='@09.92.00d00')
     patch('v10_10_02d00.patch', when='@10.10.02d00')
-    patch("10.20.09d02.patch", when="@10.20.09d02")
+    patch("https://github.com/DUNE/dunesim/commit/11ac92bb5bab67265202f264eb037508e14a8290.patch",
+          sha256="e2aefccd24835bccf2e6d885de53de615285812dab4492609df452bd65bda0c0", when="@10.20.09d02")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
