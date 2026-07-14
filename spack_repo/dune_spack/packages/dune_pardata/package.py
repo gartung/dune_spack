@@ -5,7 +5,7 @@
 from spack_repo.builtin.build_systems.generic import Package
 
 from spack.package import *
-
+import glob
 
 class DunePardata(Package):
     """FIXME: Put a proper description of your package here."""
