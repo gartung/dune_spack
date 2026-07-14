@@ -13,13 +13,12 @@ class DunePardata(Package):
     homepage = "https://www.example.com"
     url = "https://scisoft.fnal.gov/scisoft/packages/dune_pardata/v01_84_00/dune_pardata-01.84.00-noarch.tar.bz2"
 
-
     license("UNKNOWN", checked_by="github_user1")
 
     version("01.84.00", sha256="49e0ceb3538c9a0a270363b90adc230523267744d064fa4c59f271c6c50273d1")
 
     def url_for_version(self, version):
-        url = "https://scisoft.fnal.gov/scisoft/packages/dune_pardata/v{0}/dune_data-{1}-noarch.tar.bz2"
+        url = "https://scisoft.fnal.gov/scisoft/packages/dune_pardata/v{0}/dune_pardata-{1}-noarch.tar.bz2"
         return url.format(version.underscored, version.dotted)
 
     def install(self, spec, prefix):
