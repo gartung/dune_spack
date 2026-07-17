@@ -14,6 +14,8 @@ class Duneopdet(CMakePackage):
     git = "https://github.com/DUNE/duneopdet"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
+    version("10.21.02d00", sha256="2f2f47ddc23f9ebfbcc0f0840f70760a0cadbe37c71db4abf8d89a4d02d9b85a")
+    version("10.21.01d00", sha256="e3a0b42c1b6a9230afb7630440ec9de09a50a34f878df7461c017425d1b1225b")
     version("10.20.09d02", sha256="203a2a4359cda12dea387037e7135335e2309f41111b475c6a989e2986e72567")
     version("10.20.03d01", sha256="9a9af7bba2b4fa63f76abf87e41474aea9a1f63c6f9a579e3644402df1fb906c")
     version("10.11.01d00", sha256="5f312ed45baef06947b903a900fe0e296fd8179396033fc345fe29402d58bede")

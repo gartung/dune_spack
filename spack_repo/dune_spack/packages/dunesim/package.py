@@ -13,6 +13,8 @@ class Dunesim(CMakePackage):
     git = "https://github.com/DUNE/dunesim"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
+    version("10.21.02d00", sha256="b4689ee21bdb7a7b1066eca9c889d004d60df027e32a54a7f358151b6bff7c2d")
+    version("10.21.01d00", sha256="ebe05a73ebe3ba2689fb81f3dd76bd9bf9e230c51f07a9d7314257f109d15878")
     version("10.20.09d02", sha256="822291a41fd1f2ad23fd8b1cd10a38c996b368dfc41a91803efb3244dc64b4ff")
     version("10.20.03d01", sha256="400f542c9e317eca61fedd2c36b35fb8dff1b83cb960bd5304351f58fe113df6")
     version("10.11.01d00", sha256="b0edd435aa4acdf02635b9220ad233baca11e3eb83fff5e6af4df5afa5ad22c5")

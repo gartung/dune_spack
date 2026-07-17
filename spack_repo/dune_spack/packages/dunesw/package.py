@@ -16,6 +16,8 @@ class Dunesw(CMakePackage):
     git = "https://github.com/DUNE/dunesw"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
+    version("10.21.02d00", sha256="611de150ad01b820988dd75f70732bc4da4bb84a9b429c1e124297e2d04b9bfa")
+    version("10.21.01d00", sha256="437a50b3341c5894c0994e79c655604a962b4fb5f14af54823f88c61aac24bf7")
     version("10.20.09d02", sha256="6df790cc31cd7e50d1e6287d18958c2b8afe3ffa21aa3412ed58f6f859781134")
     version("10.20.03d01", sha256="6ab024528d992e73f40f5cd88eff2f027d60b83ff598ca654a98d088ba5daf79")
     version("10.11.01d00", sha256="023a7e33cfd7b8af300f1fcfe566083f3f6c7bc7385a14f42ce7ff15e5b9a99e")
