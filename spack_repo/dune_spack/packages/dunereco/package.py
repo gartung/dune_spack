@@ -64,6 +64,7 @@ class Dunereco(CMakePackage):
     depends_on("highfive@:2.99")
     depends_on("larfinder")
     depends_on("nufinder")
+    depends_on("wire-cell-toolkit+root")
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
 
