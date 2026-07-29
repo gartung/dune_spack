@@ -13,6 +13,7 @@ class Dunecore(CMakePackage):
     git = "https://github.com/DUNE/dunecore"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
+    version("10.22.00d00", sha256="e279a8fbf59631d32d7f62b79dd7ab8e90654e892a80b48140b70423b7bbe9c9")
     version("10.21.02d00", sha256="cec08295252299f5334da990f698eac4b0a69eb9b7ac87c69a259a3bf70ca118")
     version("10.21.01d00", sha256="28afecab52d9e00d99b346639a1eae9ad0bc18b2fc2031dc1d2e6043f91260ec")
     version("10.20.09d02", sha256="7902a10e3e0bf092552bb92e3f4abb6a729b014be595256806bf12fe617809c6")
