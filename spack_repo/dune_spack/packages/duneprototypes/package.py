@@ -62,6 +62,7 @@ class Duneprototypes(CMakePackage):
     depends_on("cetmodules", type="build")
     depends_on("cmake", type="build")
     depends_on("dunecalib")
+    depends_on("dunepdlegacy")
     # makes a cycle, may not actually be used(!)
     #depends_on("dunesim")
     #depends_on("duneopdet")

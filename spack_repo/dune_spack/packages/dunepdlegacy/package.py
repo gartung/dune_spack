@@ -57,3 +57,5 @@ class Dunepdlegacy(CMakePackage):
         ] 
         return args
 
+    def setup_run_environment(self, env):
+        env.prepend_path("FW_SEARCH_PATH", self.prefix.files)
