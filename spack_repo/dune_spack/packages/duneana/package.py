@@ -78,6 +78,7 @@ class Duneana(CMakePackage):
     depends_on("cxx", type="build")
     depends_on("duneanaobj")
     depends_on("dunereco")
+    depends_on("geant4reweight")
     depends_on("nufinder")
     depends_on("larfinder")
     depends_on("py-tensorflow")
