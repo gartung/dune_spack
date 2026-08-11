@@ -7,6 +7,9 @@ from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
 
 
+DUNE_PARDATA_DIR = "/cvmfs/dune.osgstorage.org/pnfs/fnal.gov/usr/dune/persistent/stash"
+
+
 class Dunesw(CMakePackage):
     """Dunesw"""
 
@@ -65,7 +68,6 @@ class Dunesw(CMakePackage):
     depends_on("cmake", type="build")
     depends_on("justin", type="run")
     depends_on("larg4", type=("test","run"))
-    depends_on("dune-pardata", type=("test","run"))
 
     def cmake_args(self):
         args = [
@@ -79,6 +81,7 @@ class Dunesw(CMakePackage):
         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
         run_env.append_path("FHICL_FILE_PATH", "{0}/fcl".format(self.prefix))
         run_env.append_path("FW_SEARCH_PATH", "{0}/gdml".format(self.prefix))
+        run_env.prepend_path("FW_SEARCH_PATH", DUNE_PARDATA_DIR)
 
     def setup_dependent_run_environment(self, run_env, dspec):
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
@@ -86,3 +89,4 @@ class Dunesw(CMakePackage):
         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
         run_env.append_path("FHICL_FILE_PATH", "{0}/fcl".format(self.prefix))
         run_env.append_path("FW_SEARCH_PATH", "{0}/gdml".format(self.prefix))
+        run_env.prepend_path("FW_SEARCH_PATH", DUNE_PARDATA_DIR)
