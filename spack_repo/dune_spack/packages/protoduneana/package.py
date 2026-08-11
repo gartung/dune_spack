@@ -13,6 +13,7 @@ class Protoduneana(CMakePackage):
     git = "https://github.com/DUNE/protoduneana"
     url = f"{git}/archive/v09_81_00d00.tar.gz"
 
+    version("10.22.00d01", sha256="35febbbc8658d462cb51189427929509d3a10624b2eb9566853ec07a23cf5116")
     version("10.22.00d00", sha256="d770010ecd1774d5eda887968dca1ea7fbffb5e50bf6e430ae7778ffa4aebfb2")
     version("10.21.02d00", sha256="c589a48f86ec49fd521ee760bfa486cc55749d139768da885fc1275c0e168194")
     version("10.21.01d00", sha256="020e898811ca1410039d7e5040158b642cc74dda2637b0af4a2b0dbc41d159c2")
